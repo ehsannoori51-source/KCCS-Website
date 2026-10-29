@@ -264,8 +264,8 @@
       "whatsappButton": true
     },
     "announcement": {
-      "on": false,
-      "text": "",
+      "on": true,
+      "text": "Special Eid Offer",
       "link": ""
     },
     "seo": {
