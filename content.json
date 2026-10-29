@@ -2,7 +2,7 @@
   "site": {
     "name": "KCCS",
     "fullName": "Kabul Central Cold Storage",
-    "logo": "",
+    "logo": "branding/logo-mvt9pss7.png",
     "heroTitle": "Precision cold for",
     "heroHighlight": "Afghanistan's",
     "heroTitleEnd": "future.",
@@ -40,7 +40,10 @@
     "facebook": "kccs.af",
     "address": "Industrial Park, Phase 2, Kabul, Afghanistan",
     "mapsLink": "https://maps.app.goo.gl/dVsqz25pHV6XEc9S7",
-    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5321.116363013774!2d69.19702861163025!3d34.53763066259262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d16f9761763b83%3A0xdbc44b66e2d48993!2sKabul%20Central%20Cold%20Storage!5e0!3m2!1sen!2saf!4v1721643600000"
+    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5321.116363013774!2d69.19702861163025!3d34.53763066259262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d16f9761763b83%3A0xdbc44b66e2d48993!2sKabul%20Central%20Cold%20Storage!5e0!3m2!1sen!2saf!4v1721643600000",
+    "email": "",
+    "instagram": "",
+    "linkedin": ""
   },
   "hours": {
     "open": "07:00",
@@ -222,5 +225,53 @@
       "q": "Can I visit before signing?",
       "a": "Yes. Book a tour and our operations team will walk you through the chambers and monitoring systems."
     }
-  ]
+  ],
+  "texts": {
+    "chambersTitle": "Four climates.",
+    "chambersSoft": "One facility.",
+    "chambersLead": "Set points and occupancy, updated daily. Book space early for the fullest chambers.",
+    "servicesTitle": "End-to-end cold chain.",
+    "servicesLead": "One point of contact for storage, handling and delivery.",
+    "pricingTitle": "Clear rates.",
+    "pricingSoft": "Instant estimate.",
+    "pricingLead": "All prices in AFN. Our team confirms exact pricing within 24 hours.",
+    "pricingNote": "Estimate at standard rates. Volume and long-contract discounts available.",
+    "galleryTitle": "Inside KCCS.",
+    "galleryLead": "Real photos from our site in Kabul. Tap a photo to view it full size.",
+    "contactTitle": "Let's keep it cold.",
+    "contactLead": "We usually reply within a few hours during business hours."
+  },
+  "settings": {
+    "accent": "#0a6cff",
+    "logoHeight": 34,
+    "showNameWithLogo": true,
+    "logoAsFavicon": true,
+    "sections": {
+      "heroPhotos": true,
+      "stats": true,
+      "trust": true,
+      "chambers": true,
+      "services": true,
+      "pricing": true,
+      "about": true,
+      "gallery": true,
+      "testimonials": true,
+      "faq": true,
+      "contact": true,
+      "map": true,
+      "weather": true,
+      "holidays": true,
+      "whatsappButton": true
+    },
+    "announcement": {
+      "on": false,
+      "text": "",
+      "link": ""
+    },
+    "seo": {
+      "title": "KCCS · Kabul Central Cold Storage",
+      "description": "Temperature-controlled storage, pharmaceutical cold chain and refrigerated distribution in Kabul, Afghanistan.",
+      "shareImage": "photos/kccs-courtyard.jpg"
+    }
+  }
 }
