@@ -122,6 +122,7 @@ hr{border:0;border-top:1px solid var(--line);margin:22px 0}
     <div class="stack">
       <label class="f"><span>Username</span><input id="lu" autocomplete="username" required/></label>
       <label class="f"><span>Password</span><input id="lp" type="password" autocomplete="current-password" required/></label>
+      <div class="note hide" id="fileWarn" style="background:#fff1f3;color:#9f1239">This page was opened from a file on your computer. Upload it to GitHub first, then open <b>https://kccs.dpdns.org/admin.html</b>.</div>
       <div class="err" id="lerr"></div>
       <button class="btn" type="submit">Sign in</button>
     </div>
@@ -207,7 +208,8 @@ const b64dec=b64=>new TextDecoder().decode(Uint8Array.from(atob(b64.replace(/\n/
 
 /* ── GitHub API ── */
 async function gh(path,opt={}){
-  const r=await fetch(`https://api.github.com/repos/${G.owner}/${G.repo}/${path}`,{...opt,headers:{'Authorization':'Bearer '+G.token,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28',...(opt.body?{'Content-Type':'application/json'}:{})}});
+  let r;try{r=await fetch(`https://api.github.com/repos/${G.owner}/${G.repo}/${path}`,{...opt,headers:{'Authorization':'Bearer '+G.token,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28',...(opt.body?{'Content-Type':'application/json'}:{})}})}
+  catch(e){throw new Error(location.protocol==='file:'?'Open the admin from the live site (https://kccs.dpdns.org/admin.html), not from a file on your computer.':'Could not reach GitHub. Check the internet connection, and pause any ad blocker or privacy extension for this page, then try again.')}
   if(!r.ok){let m='';try{m=(await r.json()).message}catch(e){}const e=new Error(m||('GitHub error '+r.status));e.status=r.status;throw e}
   return r.status===204?null:r.json();
 }
@@ -417,6 +419,7 @@ $('#saveBtn').onclick=async()=>{const b=$('#saveBtn');b.disabled=true;b.textCont
 addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='s'&&!$('#vApp').classList.contains('hide')){e.preventDefault();$('#saveBtn').click()}});
 
 /* start */
+if(location.protocol==='file:')$('#fileWarn').classList.remove('hide');
 if(sessionStorage.getItem('kccs_in')==='1')afterLogin();else show('vLogin');
 })();
 </script>
