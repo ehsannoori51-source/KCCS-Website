@@ -373,10 +373,25 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:24px}
 @media(min-width:2400px){html{font-size:20px}:root{--max:2100px}.collage{height:860px}.gal.full{grid-auto-rows:360px}}
 .hero{min-height:min(100svh,1100px);display:flex;align-items:center}
 .hero>.wrap{width:100%}
+/* announcement */
+.ann{position:fixed;top:0;left:0;right:0;z-index:150;min-height:40px;display:flex;align-items:center;justify-content:center;gap:12px;padding:8px 48px;background:var(--text);color:#fff;font-size:.86rem;font-weight:500;text-align:center}
+.ann a{color:#fff}.ann a[href]{text-decoration:underline;text-underline-offset:3px}
+.ann button{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;color:#fff;opacity:.7}
+.ann button:hover{opacity:1;background:rgba(255,255,255,.12)}
+.has-ann .nav{top:54px}.has-ann .hero{padding-top:172px}
+@media(max-width:680px){.has-ann .nav{top:48px}.has-ann .hero{padding-top:140px}.ann{font-size:.8rem;padding:8px 42px}}
+.sec-off{display:none!important}
+.brand.logo-only>span:last-child{display:none}
+.brand img{height:var(--logo-h,36px)!important}
+.f-social{display:flex;gap:8px}
+.f-social a{width:38px;height:38px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;color:var(--mute);transition:color .2s,border-color .2s}
+.f-social a:hover{color:var(--blue);border-color:var(--blue)}
+.f-social svg{width:16px;height:16px}
 </style>
 </head>
 <body>
 <div class="bg" aria-hidden="true"></div>
+<div class="ann" id="ann" hidden><a id="annText"></a><button id="annX" aria-label="Close announcement">✕</button></div>
 <div id="progress" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
@@ -408,13 +423,13 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:24px}
         <a href="#quote" class="btn btn-pri">Get a quote <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         <a data-href="contact.mapsLink" target="_blank" rel="noopener" class="btn btn-ghost">Visit facility</a>
       </div>
-      <div class="mini-stats rv">
+      <div class="mini-stats rv" data-sec="stats">
         <div><b><span data-to="stats.capacity">0</span><small>m²</small></b><span>Capacity</span></div>
         <div><b><span data-to="stats.satisfaction">0</span><small>%</small></b><span>Satisfaction</span></div>
         <div><b><span data-to="stats.deliveries">0</span><small>+</small></b><span>Deliveries</span></div>
       </div>
     </div>
-    <div class="collage rv">
+    <div class="collage rv" data-sec="heroPhotos">
       <div class="ph big"><img id="hero0" alt="KCCS facility, Kabul" fetchpriority="high" style="object-position:30% 78%" onerror="this.remove()"/><span class="tag">KCCS facility · Kabul</span></div>
       <div class="ph"><img id="hero1" alt="KCCS facility" onerror="this.remove()"/></div>
       <div class="ph"><img id="hero2" alt="KCCS facility" onerror="this.remove()"/></div>
@@ -425,38 +440,38 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:24px}
         <div class="s" id="rdS">−20°C → +8°C</div>
         <div class="segs" id="segs"></div>
       </div>
-      <div class="badge-yr"><b data-t="stats.years">10+</b><span>Years</span></div>
+      <div class="badge-yr" data-sec="stats"><b data-t="stats.years">10+</b><span>Years</span></div>
     </div>
   </div>
 </section>
 
-<div class="wrap"><div class="trust rv" id="trust"></div></div>
+<div class="wrap" data-sec="trust"><div class="trust rv" id="trust"></div></div>
 
-<section id="chambers">
+<section id="chambers" data-sec="chambers">
   <div class="wrap">
     <div class="head">
-      <div><span class="eyebrow rv">Chambers</span><h2 class="h2 rv">Four climates. <span class="soft">One facility.</span></h2></div>
-      <p class="lead rv">Set points and occupancy, updated daily. Book space early for the fullest chambers.</p>
+      <div><span class="eyebrow rv">Chambers</span><h2 class="h2 rv"><span data-t="texts.chambersTitle"></span> <span class="soft" data-t="texts.chambersSoft"></span></h2></div>
+      <p class="lead rv" data-t="texts.chambersLead"></p>
     </div>
     <div class="rail" id="rail"></div>
   </div>
 </section>
 
-<section id="services" style="padding-top:0">
+<section id="services" style="padding-top:0" data-sec="services">
   <div class="wrap">
     <div class="head">
-      <div><span class="eyebrow rv">Services</span><h2 class="h2 rv">End-to-end cold chain.</h2></div>
-      <p class="lead rv">One point of contact for storage, handling and delivery.</p>
+      <div><span class="eyebrow rv">Services</span><h2 class="h2 rv" data-t="texts.servicesTitle"></h2></div>
+      <p class="lead rv" data-t="texts.servicesLead"></p>
     </div>
     <div class="svc-grid" id="svc"></div>
   </div>
 </section>
 
-<section id="quote" style="padding-top:0">
+<section id="quote" style="padding-top:0" data-sec="pricing">
   <div class="wrap">
     <div class="head">
-      <div><span class="eyebrow rv">Pricing &amp; quote</span><h2 class="h2 rv">Clear rates. <span class="soft">Instant estimate.</span></h2></div>
-      <p class="lead rv">All prices in AFN. Our team confirms exact pricing within 24 hours.</p>
+      <div><span class="eyebrow rv">Pricing &amp; quote</span><h2 class="h2 rv"><span data-t="texts.pricingTitle"></span> <span class="soft" data-t="texts.pricingSoft"></span></h2></div>
+      <p class="lead rv" data-t="texts.pricingLead"></p>
     </div>
     <div class="quote">
       <div class="q-in card rv">
@@ -478,14 +493,14 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:24px}
           <div><span>Quantity</span><span id="rQ"></span></div>
           <div id="rDrow"><span>Duration</span><span id="rD"></span></div>
         </div>
-        <p class="fine">Estimate at standard rates. Volume and long-contract discounts available.</p>
+        <p class="fine" data-t="texts.pricingNote"></p>
         <a href="#contact" class="btn" id="sendQuote">Request this quote <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
     </div>
   </div>
 </section>
 
-<section id="about" style="padding-top:0">
+<section id="about" style="padding-top:0" data-sec="about">
   <div class="wrap inside">
     <div>
       <span class="eyebrow rv">About KCCS</span>
@@ -497,11 +512,11 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:24px}
   </div>
 </section>
 
-<section id="gallery" style="padding-top:0">
+<section id="gallery" style="padding-top:0" data-sec="gallery">
   <div class="wrap">
     <div class="head">
-      <div><span class="eyebrow rv">Gallery</span><h2 class="h2 rv">Inside KCCS.</h2></div>
-      <p class="lead rv">Real photos from our site in Kabul. Tap a photo to view it full size.</p>
+      <div><span class="eyebrow rv">Gallery</span><h2 class="h2 rv" data-t="texts.galleryTitle"></h2></div>
+      <p class="lead rv" data-t="texts.galleryLead"></p>
     </div>
     <div class="gal full rv" id="gal"></div>
   </div>
@@ -509,8 +524,8 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:24px}
 
 <section id="faq" style="padding-top:0">
   <div class="wrap">
-    <div class="tq-row" id="tq"></div>
-    <div class="faq">
+    <div class="tq-row" id="tq" data-sec="testimonials"></div>
+    <div class="faq" data-sec="faq">
       <div>
         <span class="eyebrow rv">FAQ</span>
         <h2 class="h2 rv">Questions, <span class="soft">answered.</span></h2>
@@ -521,19 +536,19 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:24px}
   </div>
 </section>
 
-<section id="contact" style="padding-top:0">
+<section id="contact" style="padding-top:0" data-sec="contact">
   <div class="wrap">
     <div class="head">
-      <div><span class="eyebrow rv">Contact</span><h2 class="h2 rv">Let's keep it cold.</h2></div>
-      <p class="lead rv">We usually reply within a few hours during business hours.</p>
+      <div><span class="eyebrow rv">Contact</span><h2 class="h2 rv" data-t="texts.contactTitle"></h2></div>
+      <p class="lead rv" data-t="texts.contactLead"></p>
     </div>
     <div class="contact">
       <div class="info card rv">
         <div class="c-grid" id="cgrid"></div>
         <div class="tabs" role="tablist">
           <button role="tab" aria-selected="true" data-tab="t1">Hours</button>
-          <button role="tab" aria-selected="false" data-tab="t2">Weather</button>
-          <button role="tab" aria-selected="false" data-tab="t3">Holidays</button>
+          <button role="tab" aria-selected="false" data-tab="t2" data-sec="weather">Weather</button>
+          <button role="tab" aria-selected="false" data-tab="t3" data-sec="holidays">Holidays</button>
         </div>
         <div class="tab on" id="t1" role="tabpanel">
           <span class="open-tag" id="openTag"><span class="dot"></span><span id="openTxt">Checking</span></span>
@@ -564,7 +579,7 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:24px}
         <button type="submit" class="btn btn-pri">Send message <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
       </form>
     </div>
-    <div class="map rv"><iframe id="mapFrame" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="KCCS location on map"></iframe></div>
+    <div class="map rv" data-sec="map"><iframe id="mapFrame" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="KCCS location on map"></iframe></div>
   </div>
 </section>
 </main>
@@ -575,11 +590,12 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:24px}
       <a href="#home" class="brand"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M9 4l3 2 3-2M9 20l3-2 3 2"/></svg></span><span><b data-t="site.name">KCCS</b><small data-t="site.fullName">Kabul Central Cold Storage</small></span></a>
       <nav class="f-links" aria-label="Footer"><a href="#chambers">Chambers</a><a href="#services">Services</a><a href="#quote">Pricing</a><a href="#about">About</a><a href="#gallery">Gallery</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></nav>
     </div>
+    <div class="f-social" id="fsocial" style="margin-top:22px"></div>
     <div class="f-bot"><span>© <span id="yr">2026</span> <span data-t="site.fullName">Kabul Central Cold Storage</span></span><span>kccs.dpdns.org</span></div>
   </div>
 </footer>
 
-<a class="wa" id="waBtn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 32 32"><path d="M16 3a13 13 0 00-11.2 19.6L3 29l6.6-1.7A13 13 0 1016 3zm0 23.6a10.6 10.6 0 01-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1116 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 01-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 00-.9.4 3.6 3.6 0 00-1.1 2.7 6.3 6.3 0 001.3 3.3 14.4 14.4 0 005.5 4.9c2 .9 2.8.9 3.9.8a3.3 3.3 0 002.1-1.5 2.7 2.7 0 00.2-1.5c-.1-.2-.3-.3-.7-.5z"/></svg></a>
+<a class="wa" id="waBtn" data-sec="whatsappButton" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 32 32"><path d="M16 3a13 13 0 00-11.2 19.6L3 29l6.6-1.7A13 13 0 1016 3zm0 23.6a10.6 10.6 0 01-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1116 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 01-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 00-.9.4 3.6 3.6 0 00-1.1 2.7 6.3 6.3 0 001.3 3.3 14.4 14.4 0 005.5 4.9c2 .9 2.8.9 3.9.8a3.3 3.3 0 002.1-1.5 2.7 2.7 0 00.2-1.5c-.1-.2-.3-.3-.7-.5z"/></svg></a>
 
 <nav class="dock" id="dock" aria-label="Quick actions">
   <a class="d1" data-tel="contact.phone1" data-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg>Call</a>
@@ -596,7 +612,7 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:24px}
 </div>
 
 <!-- Default content. The live site loads content.json (edited from admin.html) and falls back to this copy. -->
-<script type="application/json" id="defaults">{"site":{"name":"KCCS","fullName":"Kabul Central Cold Storage","logo":"kccs-logo.png","heroTitle":"Precision cold for","heroHighlight":"Afghanistan's","heroTitleEnd":"future.","heroText":"From farm-fresh produce to life-saving vaccines, KCCS keeps every pallet at the right temperature, from intake to delivery across Kabul.","trust":["ISO-aligned","WHO-compliant pharma","24/7 monitoring","Generator & solar power","Since 2015"],"aboutTitle":"Kabul's cold chain partner since 2015.","aboutText":"We keep produce, food and medicine safe from intake to delivery. Exporters, hospitals, NGOs and food businesses rely on us for storage plans built for the Afghan market.","aboutPoints":["IoT monitoring & alerts","Vaccine-grade cold chain","Trained handling staff","Short & long-term plans","Backup power & 24/7 security","ISO-aligned standards"]},"stats":{"capacity":10000,"satisfaction":99,"deliveries":500,"years":"10+"},"contact":{"phone1":"+93 771 895 602","phone2":"+93 785 347 477","emergency":"+93 799 654 321","whatsapp":"+93 771 895 602","formEmail":"ehsan.noori51@gmail.com","facebook":"kccs.af","address":"Industrial Park, Phase 2, Kabul, Afghanistan","mapsLink":"https://maps.app.goo.gl/dVsqz25pHV6XEc9S7","mapEmbed":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5321.116363013774!2d69.19702861163025!3d34.53763066259262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d16f9761763b83%3A0xdbc44b66e2d48993!2sKabul%20Central%20Cold%20Storage!5e0!3m2!1sen!2saf!4v1721643600000"},"hours":{"open":"07:00","close":"18:00","fridayText":"Emergency line only","fridayClosed":true},"chambers":[{"name":"Fruit & Veg","range":"0°C → +8°C","temp":"+4","used":68},{"name":"Pharmaceutical","range":"−20°C → +8°C","temp":"−18","used":42},{"name":"Deep Freeze","range":"Down to −25°C","temp":"−25","used":87},{"name":"Ambient Cool","range":"+8°C → +15°C","temp":"+12","used":31}],"services":[{"icon":"snow","title":"Temperature-controlled storage","text":"Rooms from −25°C to +15°C for produce, dairy and frozen goods."},{"icon":"box","title":"Cross-docking & inventory","text":"Handling, palletising, labelling and stock tracking."},{"icon":"truck","title":"Distribution & last-mile","text":"Refrigerated delivery across Kabul and nearby provinces."},{"icon":"pill","title":"Pharmaceutical cold chain","text":"Vaccine and medicine storage for hospitals and NGOs."},{"icon":"leaf","title":"Produce & export handling","text":"Pre-cooling, grading and packing for exporters."},{"icon":"shield","title":"24/7 secure operations","text":"Monitoring, generator backup, CCTV and guards."}],"pricing":[{"name":"Fruit & Veg storage","short":"Fruit & Veg","price":1200,"unit":"pallet","monthly":true,"popular":true},{"name":"Pharma storage","short":"Pharma","price":1800,"unit":"m³","monthly":true,"popular":false},{"name":"Deep freeze storage","short":"Deep Freeze","price":2400,"unit":"pallet","monthly":true,"popular":false},{"name":"Cross-docking & handling","short":"Cross-docking","price":500,"unit":"shipment","monthly":false,"popular":false},{"name":"Delivery in Kabul","short":"Delivery · Kabul","price":2000,"unit":"trip","monthly":false,"popular":false}],"heroPhotos":["photos/kccs-courtyard.jpg","photos/kccs-control-panels.jpg","photos/kccs-solar-parking.jpg"],"aboutPhoto":"photos/kccs-cold-rooms.jpg","gallery":[{"file":"photos/kccs-courtyard.jpg","caption":"Facility"},{"file":"photos/kccs-control-panels.jpg","caption":"Controls"},{"file":"photos/kccs-generator.jpg","caption":"Generator"},{"file":"photos/kccs-solar-parking.jpg","caption":"Solar yard"},{"file":"photos/kccs-power-room.jpg","caption":"Power room"},{"file":"photos/kccs-cold-rooms.jpg","caption":"Cold rooms"},{"file":"photos/kccs-office.jpg","caption":"Office"},{"file":"photos/kccs-facility.jpg","caption":"Exterior"}],"testimonials":[{"quote":"KCCS helped us ship fresh produce to India with zero spoilage loss. Excellent temperature control and a very professional team.","name":"Ahmad Exports","role":"Produce exporter, Kabul"},{"quote":"Exactly what our NGO needed. Vaccines reached remote provinces in perfect condition every time.","name":"Health Organisation","role":"Vaccine logistics partner"},{"quote":"Reliable, affordable and always available. The only cold storage I trust for our restaurant supply chain.","name":"Kabul Foods","role":"F&B supply chain"}],"faq":[{"q":"What is the minimum storage period?","a":"One month as standard. Weekly rates are available for caterers, exporters waiting for a shipment window, or urgent pharmaceutical storage."},{"q":"Do you deliver?","a":"Yes. Refrigerated delivery within Kabul, inter-provincial logistics through partners, and same-day delivery for urgent shipments with prior arrangement."},{"q":"Is it safe for pharmaceuticals?","a":"Our pharma chambers follow WHO and international cold chain standards, with continuous temperature logs, backup power and compliance documents."},{"q":"What happens in a power outage?","a":"Dual backup generators start automatically within seconds of a grid failure. Every event is logged with a timestamp."},{"q":"Do you serve clients outside Kabul?","a":"Yes. We work with clients across Afghanistan, including NGOs in remote provinces."},{"q":"Can I visit before signing?","a":"Yes. Book a tour and our operations team will walk you through the chambers and monitoring systems."}]}</script>
+<script type="application/json" id="defaults">{"site":{"name":"KCCS","fullName":"Kabul Central Cold Storage","logo":"kccs-logo.png","heroTitle":"Precision cold for","heroHighlight":"Afghanistan's","heroTitleEnd":"future.","heroText":"From farm-fresh produce to life-saving vaccines, KCCS keeps every pallet at the right temperature, from intake to delivery across Kabul.","trust":["ISO-aligned","WHO-compliant pharma","24/7 monitoring","Generator & solar power","Since 2015"],"aboutTitle":"Kabul's cold chain partner since 2015.","aboutText":"We keep produce, food and medicine safe from intake to delivery. Exporters, hospitals, NGOs and food businesses rely on us for storage plans built for the Afghan market.","aboutPoints":["IoT monitoring & alerts","Vaccine-grade cold chain","Trained handling staff","Short & long-term plans","Backup power & 24/7 security","ISO-aligned standards"]},"stats":{"capacity":10000,"satisfaction":99,"deliveries":500,"years":"10+"},"contact":{"phone1":"+93 771 895 602","phone2":"+93 785 347 477","emergency":"+93 799 654 321","whatsapp":"+93 771 895 602","formEmail":"ehsan.noori51@gmail.com","facebook":"kccs.af","address":"Industrial Park, Phase 2, Kabul, Afghanistan","mapsLink":"https://maps.app.goo.gl/dVsqz25pHV6XEc9S7","mapEmbed":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5321.116363013774!2d69.19702861163025!3d34.53763066259262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d16f9761763b83%3A0xdbc44b66e2d48993!2sKabul%20Central%20Cold%20Storage!5e0!3m2!1sen!2saf!4v1721643600000","email":"","instagram":"","linkedin":""},"hours":{"open":"07:00","close":"18:00","fridayText":"Emergency line only","fridayClosed":true},"chambers":[{"name":"Fruit & Veg","range":"0°C → +8°C","temp":"+4","used":68},{"name":"Pharmaceutical","range":"−20°C → +8°C","temp":"−18","used":42},{"name":"Deep Freeze","range":"Down to −25°C","temp":"−25","used":87},{"name":"Ambient Cool","range":"+8°C → +15°C","temp":"+12","used":31}],"services":[{"icon":"snow","title":"Temperature-controlled storage","text":"Rooms from −25°C to +15°C for produce, dairy and frozen goods."},{"icon":"box","title":"Cross-docking & inventory","text":"Handling, palletising, labelling and stock tracking."},{"icon":"truck","title":"Distribution & last-mile","text":"Refrigerated delivery across Kabul and nearby provinces."},{"icon":"pill","title":"Pharmaceutical cold chain","text":"Vaccine and medicine storage for hospitals and NGOs."},{"icon":"leaf","title":"Produce & export handling","text":"Pre-cooling, grading and packing for exporters."},{"icon":"shield","title":"24/7 secure operations","text":"Monitoring, generator backup, CCTV and guards."}],"pricing":[{"name":"Fruit & Veg storage","short":"Fruit & Veg","price":1200,"unit":"pallet","monthly":true,"popular":true},{"name":"Pharma storage","short":"Pharma","price":1800,"unit":"m³","monthly":true,"popular":false},{"name":"Deep freeze storage","short":"Deep Freeze","price":2400,"unit":"pallet","monthly":true,"popular":false},{"name":"Cross-docking & handling","short":"Cross-docking","price":500,"unit":"shipment","monthly":false,"popular":false},{"name":"Delivery in Kabul","short":"Delivery · Kabul","price":2000,"unit":"trip","monthly":false,"popular":false}],"heroPhotos":["photos/kccs-courtyard.jpg","photos/kccs-control-panels.jpg","photos/kccs-solar-parking.jpg"],"aboutPhoto":"photos/kccs-cold-rooms.jpg","gallery":[{"file":"photos/kccs-courtyard.jpg","caption":"Facility"},{"file":"photos/kccs-control-panels.jpg","caption":"Controls"},{"file":"photos/kccs-generator.jpg","caption":"Generator"},{"file":"photos/kccs-solar-parking.jpg","caption":"Solar yard"},{"file":"photos/kccs-power-room.jpg","caption":"Power room"},{"file":"photos/kccs-cold-rooms.jpg","caption":"Cold rooms"},{"file":"photos/kccs-office.jpg","caption":"Office"},{"file":"photos/kccs-facility.jpg","caption":"Exterior"}],"testimonials":[{"quote":"KCCS helped us ship fresh produce to India with zero spoilage loss. Excellent temperature control and a very professional team.","name":"Ahmad Exports","role":"Produce exporter, Kabul"},{"quote":"Exactly what our NGO needed. Vaccines reached remote provinces in perfect condition every time.","name":"Health Organisation","role":"Vaccine logistics partner"},{"quote":"Reliable, affordable and always available. The only cold storage I trust for our restaurant supply chain.","name":"Kabul Foods","role":"F&B supply chain"}],"faq":[{"q":"What is the minimum storage period?","a":"One month as standard. Weekly rates are available for caterers, exporters waiting for a shipment window, or urgent pharmaceutical storage."},{"q":"Do you deliver?","a":"Yes. Refrigerated delivery within Kabul, inter-provincial logistics through partners, and same-day delivery for urgent shipments with prior arrangement."},{"q":"Is it safe for pharmaceuticals?","a":"Our pharma chambers follow WHO and international cold chain standards, with continuous temperature logs, backup power and compliance documents."},{"q":"What happens in a power outage?","a":"Dual backup generators start automatically within seconds of a grid failure. Every event is logged with a timestamp."},{"q":"Do you serve clients outside Kabul?","a":"Yes. We work with clients across Afghanistan, including NGOs in remote provinces."},{"q":"Can I visit before signing?","a":"Yes. Book a tour and our operations team will walk you through the chambers and monitoring systems."}],"texts":{"chambersTitle":"Four climates.","chambersSoft":"One facility.","chambersLead":"Set points and occupancy, updated daily. Book space early for the fullest chambers.","servicesTitle":"End-to-end cold chain.","servicesLead":"One point of contact for storage, handling and delivery.","pricingTitle":"Clear rates.","pricingSoft":"Instant estimate.","pricingLead":"All prices in AFN. Our team confirms exact pricing within 24 hours.","pricingNote":"Estimate at standard rates. Volume and long-contract discounts available.","galleryTitle":"Inside KCCS.","galleryLead":"Real photos from our site in Kabul. Tap a photo to view it full size.","contactTitle":"Let's keep it cold.","contactLead":"We usually reply within a few hours during business hours."},"settings":{"accent":"#0a6cff","logoHeight":36,"showNameWithLogo":true,"logoAsFavicon":true,"sections":{"heroPhotos":true,"stats":true,"trust":true,"chambers":true,"services":true,"pricing":true,"about":true,"gallery":true,"testimonials":true,"faq":true,"contact":true,"map":true,"weather":true,"holidays":true,"whatsappButton":true},"announcement":{"on":false,"text":"","link":""},"seo":{"title":"KCCS · Kabul Central Cold Storage","description":"Temperature-controlled storage, pharmaceutical cold chain and refrigerated distribution in Kabul, Afghanistan.","shareImage":"photos/kccs-courtyard.jpg"}}}</script>
 <script>
 (function(){
   const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -622,7 +638,10 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:24px}
   };
   const svg=(k,vb='0 0 24 24')=>`<svg viewBox="${vb}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${ICON[k]||ICON.snow}</svg>`;
 
-  let C=JSON.parse($('#defaults').textContent);
+  const isObj=v=>v&&typeof v==='object'&&!Array.isArray(v);
+  const merge=(a,b)=>{const o={...a};for(const k in b){o[k]=isObj(a[k])&&isObj(b[k])?merge(a[k],b[k]):b[k]}return o};
+  const DEF=JSON.parse($('#defaults').textContent);
+  let C=DEF;
   let io=null;
 
   function observe(){
@@ -642,6 +661,42 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:24px}
     counted=true;
   }
 
+  const SOC={
+    ig:'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/>',
+    li:'<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 014 0v4M12 10v7"/>',
+    mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>'};
+  function applySettings(){
+    const S=C.settings||{},V=S.sections||{};
+    $$('[data-sec]').forEach(el=>el.classList.toggle('sec-off',V[el.dataset.sec]===false));
+    const navMap={chambers:'chambers',services:'services',quote:'pricing',about:'about',gallery:'gallery',faq:'faq',contact:'contact'};
+    $$('#links a,.f-links a').forEach(a=>{const id=a.getAttribute('href').slice(1);const k=navMap[id];a.classList.toggle('sec-off',!!k&&V[k]===false)});
+    // if Hours is the only visible tab, hide the tab bar
+    const tabsOn=['weather','holidays'].filter(k=>V[k]!==false).length;$('.tabs').classList.toggle('sec-off',tabsOn===0);
+    // accent colour
+    const a=/^#[0-9a-f]{6}$/i.test(S.accent||'')?S.accent:'#0a6cff',r=document.documentElement.style;
+    r.setProperty('--blue',a);r.setProperty('--sky',`color-mix(in srgb, ${a} 55%, #22d3ee)`);r.setProperty('--ice',`color-mix(in srgb, ${a} 10%, #fff)`);
+    // logo
+    const brand=$('.nav .brand');brand.classList.toggle('logo-only',!!C.site.logo&&S.showNameWithLogo===false);
+    document.documentElement.style.setProperty('--logo-h',(+S.logoHeight||36)+'px');
+    if(!C.site.logo){const im=$('#logoImg');im.removeAttribute('src');im.style.display='none';if(!brand.querySelector('.mark')){im.insertAdjacentHTML('afterend','<span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M9 4l3 2 3-2M9 20l3-2 3 2"/></svg></span>')}}
+    let fav=document.querySelector('link[rel=icon]');if(S.logoAsFavicon!==false&&C.site.logo)fav.href=C.site.logo;
+    // SEO
+    const seo=S.seo||{};if(seo.title)document.title=seo.title;
+    const md=document.querySelector('meta[name=description]');if(seo.description)md.content=seo.description;
+    const og=document.querySelector('meta[property="og:image"]');if(seo.shareImage)og.content=new URL(seo.shareImage,location.href).href;
+    // announcement
+    const A=S.announcement||{},ann=$('#ann'),key='ann-x-'+(A.text||'');let closed=false;try{closed=sessionStorage.getItem(key)==='1'}catch(e){}
+    const on=!!(A.on&&A.text)&&!closed;ann.hidden=!on;document.body.classList.toggle('has-ann',on);
+    if(on){const t=$('#annText');t.textContent=A.text;if(A.link){t.href=A.link;t.target=/^https?:/.test(A.link)?'_blank':''}else t.removeAttribute('href')}
+    $('#annX').onclick=()=>{try{sessionStorage.setItem(key,'1')}catch(e){}ann.hidden=true;document.body.classList.remove('has-ann')};
+    // footer social
+    const K=C.contact||{},soc=[];
+    if(K.facebook)soc.push(['https://facebook.com/'+String(K.facebook).replace(/^.*facebook\.com\//,''),svg('fb'),'Facebook']);
+    if(K.instagram)soc.push(['https://instagram.com/'+String(K.instagram).replace(/^.*instagram\.com\//,'').replace(/^@/,''),`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">${SOC.ig}</svg>`,'Instagram']);
+    if(K.linkedin)soc.push([/^https?:/.test(K.linkedin)?K.linkedin:'https://www.linkedin.com/company/'+K.linkedin,`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">${SOC.li}</svg>`,'LinkedIn']);
+    if(K.email)soc.push(['mailto:'+K.email,`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">${SOC.mail}</svg>`,'Email']);
+    $('#fsocial').innerHTML=soc.map(([h,i,l])=>`<a href="${esc(h)}" ${h.startsWith('http')?'target="_blank" rel="noopener"':''} aria-label="${l}">${i}</a>`).join('');
+  }
   function render(){
     // simple text bindings
     $$('[data-t]').forEach(el=>{const v=get(C,el.dataset.t);if(v!=null)el.textContent=v});
@@ -650,7 +705,7 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:24px}
     const wa='https://wa.me/'+waNum(C.contact.whatsapp);
     $('#waBtn').href=wa; $$('[data-wa]').forEach(a=>a.href=wa);
     const logo=$('#logoImg'); if(C.site.logo&&logo.getAttribute('src')!==C.site.logo)logo.src=C.site.logo;
-    document.title=`${C.site.name} · ${C.site.fullName}`;
+    
 
     // photos
     ['hero0','hero1','hero2'].forEach((id,i)=>{const im=document.getElementById(id);const f=(C.heroPhotos||[])[i];if(im&&f&&im.getAttribute('src')!==f)im.src=f});
@@ -672,7 +727,7 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:24px}
     sel=Math.min(sel,P.length-1);calc();
 
     // gallery
-    $('#gal').innerHTML=(C.gallery||[]).map(g=>`<button class="g"><img src="${esc(g.file)}" alt="${esc(g.caption||'KCCS photo')}" loading="lazy" onerror="this.parentElement.remove()"/>${g.caption?`<span>${esc(g.caption)}</span>`:''}</button>`).join('');
+    $('#gal').innerHTML=(C.gallery||[]).filter(g=>g.file&&g.file!==C.site.logo).map(g=>`<button class="g"><img src="${esc(g.file)}" alt="${esc(g.caption||'KCCS photo')}" loading="lazy" onerror="this.parentElement.remove()"/>${g.caption?`<span>${esc(g.caption)}</span>`:''}</button>`).join('');
     const n=(C.gallery||[]).length;
     $('#gal').dataset.n=n;fixGal();
 
@@ -684,7 +739,7 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:24px}
 
     const K=C.contact;
     const tile=(href,ic,lbl,val,ext)=>val?`<a class="c" href="${esc(href)}"${ext?' target="_blank" rel="noopener"':''}><span class="ic">${svg(ic)}</span><span><small>${lbl}</small><b>${esc(val)}</b></span></a>`:'';
-    $('#cgrid').innerHTML=tile('tel:'+digits(K.phone1),'phone','Phone',K.phone1)+tile('tel:'+digits(K.phone2),'phone','Phone 2',K.phone2)+tile('tel:'+digits(K.emergency),'alert','24/7 emergency',K.emergency)+tile(wa,'chat','WhatsApp',K.whatsapp,1)+tile('https://facebook.com/'+String(K.facebook||'').replace(/^.*facebook\.com\//,''),'fb','Facebook',K.facebook,1)+tile(K.mapsLink,'pin','Address',K.address,1);
+    $('#cgrid').innerHTML=tile('tel:'+digits(K.phone1),'phone','Phone',K.phone1)+tile('tel:'+digits(K.phone2),'phone','Phone 2',K.phone2)+tile('tel:'+digits(K.emergency),'alert','24/7 emergency',K.emergency)+tile(wa,'chat','WhatsApp',K.whatsapp,1)+tile('https://facebook.com/'+String(K.facebook||'').replace(/^.*facebook\.com\//,''),'fb','Facebook',K.facebook,1)+tile(K.mapsLink,'pin','Address',K.address,1)+(K.email?tile('mailto:'+K.email,'chat','Email',K.email):'');
     $('#form').action='https://formsubmit.co/'+encodeURIComponent(K.formEmail||'');
     const mf=$('#mapFrame'); if(K.mapEmbed&&mf.getAttribute('src')!==K.mapEmbed)mf.src=K.mapEmbed;
 
@@ -692,7 +747,7 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:24px}
     $('#hrs').innerHTML=days.map(([n,d])=>`<div data-d="${d}"><span>${n}</span><span>${d===5&&H.fridayClosed?esc(H.fridayText):esc(H.open+' – '+H.close)}</span></div>`).join('');
 
     $('#segs').innerHTML=(C.chambers||[]).map(()=>'<i></i>').join('');
-    counters();observe();tick();
+    applySettings();counters();observe();tick();
   }
 
   function fixGal(){const g=$('#gal');const items=[...g.children];items.forEach(x=>x.style.gridColumn='');if(items.length<2)return;
@@ -772,7 +827,7 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:24px}
 
   /* render built-in copy now, then the live copy from content.json */
   render();
-  fetch('content.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.ok?r.json():null).then(j=>{if(j){C=Object.assign({},C,j);render()}}).catch(()=>{});
+  fetch('content.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.ok?r.json():null).then(j=>{if(j){C=merge(DEF,j);render()}}).catch(()=>{});
 })();
 </script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs)}}(document,'script','weatherwidget-io-js');</script>

@@ -14,14 +14,17 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--f-body);background:var(--bg);color:var(--text);line-height:1.5;font-size:15px;-webkit-font-smoothing:antialiased}
 button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+a{color:var(--blue)}
 input,textarea,select{font:inherit;font-size:15px;color:var(--text);background:#fff;border:1px solid var(--line2);border-radius:10px;padding:10px 12px;width:100%;outline:none;transition:border-color .2s,box-shadow .2s}
 input:focus,textarea:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(10,108,255,.1)}
 textarea{min-height:80px;resize:vertical}
-input[type=checkbox]{width:18px;height:18px;accent-color:var(--blue)}
+input[type=checkbox]{width:18px;height:18px;accent-color:var(--blue);flex-shrink:0}
+input[type=color]{padding:3px;height:42px;width:64px;cursor:pointer}
+input[type=range]{padding:0;accent-color:var(--blue)}
 label.f{display:flex;flex-direction:column;gap:6px;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
 label.f>span{display:block}
-.chk{display:flex;align-items:center;gap:8px;font-size:.88rem}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:42px;padding:0 18px;border-radius:999px;font-weight:600;font-size:.88rem;background:var(--text);color:#fff;transition:background .2s,opacity .2s}
+.chk{display:flex;align-items:center;gap:10px;font-size:.9rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:42px;padding:0 18px;border-radius:999px;font-weight:600;font-size:.88rem;background:var(--text);color:#fff;transition:background .2s,opacity .2s;text-decoration:none;white-space:nowrap}
 .btn:hover{background:var(--blue)}
 .btn:disabled{opacity:.5;cursor:wait}
 .btn.ghost{background:#fff;color:var(--text);border:1px solid var(--line2)}
@@ -30,37 +33,37 @@ label.f>span{display:block}
 .btn.danger:hover{background:#fff1f3}
 .btn.sm{height:32px;padding:0 12px;font-size:.78rem}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh)}
-.mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(145deg,#0a6cff,#22b8f0);display:grid;place-items:center}
+.mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(145deg,#0a6cff,#22b8f0);display:grid;place-items:center;flex-shrink:0}
 .mark svg{width:18px;height:18px}
 h1,h2,h3{font-family:var(--f-head);letter-spacing:-.02em}
+h3{font-size:1.02rem;margin-bottom:12px}
 .mono{font-family:var(--f-mono)}
 .hide{display:none!important}
-
-/* login */
 .center{min-height:100vh;display:grid;place-items:center;padding:20px}
-.login{width:100%;max-width:400px;padding:32px}
+.login{width:100%;max-width:420px;padding:32px}
 .login h1{font-size:1.5rem;margin:18px 0 4px}
-.login p{color:var(--mute);font-size:.9rem;margin-bottom:22px}
+.login>p{color:var(--mute);font-size:.9rem;margin-bottom:22px}
 .stack{display:flex;flex-direction:column;gap:14px}
 .err{color:var(--warn);font-size:.85rem;min-height:1.2em}
-.note{font-size:.82rem;color:var(--mute);background:var(--ice);border-radius:12px;padding:12px 14px;line-height:1.55}
-.note a{color:var(--blue)}
-.note ol{padding-left:18px}
-
-/* app */
-.top{position:sticky;top:0;z-index:10;background:rgba(245,248,252,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.top-in{max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.ok-msg{color:var(--ok);font-size:.85rem}
+.note{font-size:.84rem;color:var(--mute);background:var(--ice);border-radius:12px;padding:12px 14px;line-height:1.55}
+.note.warn{background:#fff7ed;color:#9a3412}
+.note ol,.note ul{padding-left:18px}
+.linkbtn{color:var(--blue);font-size:.86rem;text-decoration:underline;text-underline-offset:3px;align-self:center}
+.top{position:sticky;top:0;z-index:10;background:rgba(245,248,252,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top-in{max-width:1240px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .top-in .t{display:flex;align-items:center;gap:12px;margin-right:auto}
 .top-in b{font-family:var(--f-head);font-size:1.05rem}
 .top-in small{display:block;font-family:var(--f-mono);font-size:.62rem;color:var(--mute);letter-spacing:.08em}
-.status{font-family:var(--f-mono);font-size:.72rem;color:var(--mute)}
+.status{font-family:var(--f-mono);font-size:.72rem;color:var(--mute);margin-right:4px}
 .status.dirty{color:#c2410c}
-.wrap{max-width:1200px;margin:0 auto;padding:20px;display:grid;grid-template-columns:220px 1fr;gap:20px;align-items:start}
+.wrap{max-width:1240px;margin:0 auto;padding:20px;display:grid;grid-template-columns:230px 1fr;gap:20px;align-items:start}
 .side{position:sticky;top:84px;padding:8px;display:flex;flex-direction:column;gap:2px}
-.side button{text-align:left;padding:10px 14px;border-radius:10px;font-weight:500;font-size:.9rem;color:var(--mute)}
+.side .grp{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);padding:12px 14px 4px}
+.side button{text-align:left;padding:9px 14px;border-radius:10px;font-weight:500;font-size:.9rem;color:var(--mute)}
 .side button:hover{background:var(--bg);color:var(--text)}
 .side button.on{background:var(--ice);color:var(--blue)}
-.pane{padding:24px}
+.pane{padding:26px;min-width:0}
 .pane h2{font-size:1.3rem;margin-bottom:4px}
 .pane .sub{color:var(--mute);font-size:.88rem;margin-bottom:22px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -70,82 +73,123 @@ h1,h2,h3{font-family:var(--f-head);letter-spacing:-.02em}
 .item{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--bg)}
 .item-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px}
 .item-h b{font-size:.9rem}
-.item-h .acts{display:flex;gap:6px}
-.ib{width:32px;height:32px;border-radius:8px;border:1px solid var(--line2);background:#fff;display:grid;place-items:center;font-size:.9rem}
+.acts{display:flex;gap:6px}
+.ib{width:32px;height:32px;border-radius:8px;border:1px solid var(--line2);background:#fff;display:grid;place-items:center;font-size:.9rem;flex-shrink:0}
 .ib:hover{border-color:var(--blue);color:var(--blue)}
 .ib.del:hover{border-color:var(--warn);color:var(--warn)}
 .add{margin-top:14px}
-hr{border:0;border-top:1px solid var(--line);margin:22px 0}
-
-/* photos */
-.drop{border:2px dashed var(--line2);border-radius:16px;padding:28px;text-align:center;color:var(--mute);transition:border-color .2s,background .2s;cursor:pointer}
+hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+.drop{border:2px dashed var(--line2);border-radius:16px;padding:26px;text-align:center;color:var(--mute);transition:border-color .2s,background .2s;cursor:pointer}
 .drop.over,.drop:hover{border-color:var(--blue);background:var(--ice);color:var(--blue)}
 .drop b{display:block;color:var(--text);font-size:1rem;margin-bottom:4px}
-.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:20px}
+.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:16px}
 .ph{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
 .ph .img{aspect-ratio:4/3;background:var(--ice) center/cover no-repeat;position:relative}
-.ph .badges{position:absolute;left:8px;top:8px;display:flex;gap:4px;flex-wrap:wrap}
-.ph .badges span{font-family:var(--f-mono);font-size:.6rem;background:rgba(255,255,255,.92);padding:2px 7px;border-radius:999px}
-.ph .badges span.g{background:var(--blue);color:#fff}
+.ph .img.contain{background-size:contain;background-color:#f1f5f9}
+.badges{position:absolute;left:8px;top:8px;display:flex;gap:4px;flex-wrap:wrap}
+.badges span{font-family:var(--f-mono);font-size:.6rem;background:rgba(255,255,255,.92);padding:2px 7px;border-radius:999px}
+.badges span.g{background:var(--blue);color:#fff}
 .ph .meta{padding:10px;display:flex;flex-direction:column;gap:8px}
 .ph .name{font-family:var(--f-mono);font-size:.68rem;color:var(--mute);word-break:break-all}
-.ph .row{display:flex;gap:6px;flex-wrap:wrap}
+.row{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
 .gal-list .item{display:grid;grid-template-columns:90px 1fr auto;gap:12px;align-items:center;padding:10px}
-.gal-list .thumb{width:90px;height:66px;border-radius:8px;background:var(--ice) center/cover}
+.thumb{width:90px;height:66px;border-radius:8px;background:var(--ice) center/cover}
 .slots{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .slot{border:1px solid var(--line);border-radius:12px;padding:10px;background:var(--bg)}
-.slot .thumb{aspect-ratio:4/3;border-radius:8px;background:var(--ice) center/cover;margin:8px 0}
-.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(150%);background:var(--text);color:#fff;padding:12px 18px;border-radius:12px;font-size:.88rem;box-shadow:var(--sh);transition:transform .3s;z-index:50;max-width:90vw}
+.slot .thumb{width:auto;height:auto;aspect-ratio:4/3;margin:8px 0}
+.toggles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tg{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
+.tg b{font-weight:600;font-size:.9rem;display:block}
+.tg small{color:var(--mute);font-size:.78rem}
+.sw{position:relative;width:44px;height:26px;flex-shrink:0}
+.sw input{opacity:0;width:0;height:0;position:absolute}
+.sw i{position:absolute;inset:0;border-radius:999px;background:#cbd5e1;transition:background .2s;cursor:pointer}
+.sw i::after{content:'';position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:transform .2s}
+.sw input:checked+i{background:var(--blue)}
+.sw input:checked+i::after{transform:translateX(18px)}
+.sw input:focus-visible+i{outline:2px solid var(--blue);outline-offset:2px}
+.preview-hdr{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:999px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh);max-width:520px}
+.preview-hdr img{width:auto;display:block}
+.preview-hdr b{font-family:var(--f-head);font-size:1rem;display:block;line-height:1.1}
+.preview-hdr small{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.14em;color:var(--mute);text-transform:uppercase}
+.swatches{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.swatches button{width:36px;height:36px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px var(--line2)}
+.swatches button.on{box-shadow:0 0 0 2px var(--text)}
+.hist .item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px}
+.hist small{display:block;color:var(--mute);font-size:.78rem}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(160%);background:var(--text);color:#fff;padding:12px 18px;border-radius:12px;font-size:.88rem;box-shadow:var(--sh);transition:transform .3s;z-index:50;max-width:90vw}
 .toast.on{transform:translateX(-50%)}
 .toast.bad{background:var(--warn)}
 .prog{height:4px;border-radius:4px;background:var(--line);overflow:hidden;margin-top:10px}
 .prog i{display:block;height:100%;width:0;background:var(--blue);transition:width .3s}
-
-@media(max-width:860px){
+.pw-meter{height:4px;border-radius:4px;background:var(--line);overflow:hidden;margin-top:-6px}
+.pw-meter i{display:block;height:100%;width:0;transition:width .3s,background .3s}
+@media(max-width:900px){
   .wrap{grid-template-columns:1fr}
   .side{position:static;flex-direction:row;overflow-x:auto}
+  .side .grp{display:none}
   .side button{white-space:nowrap}
-  .grid2,.grid3{grid-template-columns:1fr}
+  .grid2,.grid3,.toggles{grid-template-columns:1fr}
   .slots{grid-template-columns:1fr 1fr}
   .pane{padding:18px}
+  .top-in .t small{display:none}
 }
 </style>
 </head>
 <body>
 
-<!-- 1. LOGIN -->
+<!-- SIGN IN -->
 <div class="center" id="vLogin">
   <form class="login card" id="loginForm" autocomplete="on">
     <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7"/></svg></span>
     <h1>KCCS Admin</h1>
     <p>Sign in to manage the website.</p>
     <div class="stack">
+      <div class="note warn hide" id="fileWarn">This page was opened from a file on your computer. Open <b>https://kccs.dpdns.org/admin.html</b> instead.</div>
       <label class="f"><span>Username</span><input id="lu" autocomplete="username" required/></label>
       <label class="f"><span>Password</span><input id="lp" type="password" autocomplete="current-password" required/></label>
-      <div class="note hide" id="fileWarn" style="background:#fff1f3;color:#9f1239">This page was opened from a file on your computer. Upload it to GitHub first, then open <b>https://kccs.dpdns.org/admin.html</b>.</div>
       <div class="err" id="lerr"></div>
-      <button class="btn" type="submit">Sign in</button>
+      <button class="btn" type="submit" id="lbtn">Sign in</button>
+      <button class="linkbtn" type="button" id="forgotLink">Forgot password?</button>
     </div>
   </form>
 </div>
 
-<!-- 2. CONNECT TO GITHUB (one time per device) -->
+<!-- RESET PASSWORD WITH GITHUB KEY -->
+<div class="center hide" id="vReset">
+  <form class="login card" id="resetForm" style="max-width:480px" autocomplete="off">
+    <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7"/></svg></span>
+    <h1>Reset password</h1>
+    <p>Prove you own the website with your GitHub key, then choose a new username and password.</p>
+    <div class="stack">
+      <label class="f"><span>GitHub key</span><input id="rt" type="password" placeholder="github_pat_…" required/></label>
+      <label class="f"><span>New username</span><input id="ru" required autocomplete="off"/></label>
+      <label class="f"><span>New password</span><input id="rp1" type="password" required autocomplete="new-password"/></label>
+      <div class="pw-meter"><i id="rmeter"></i></div>
+      <label class="f"><span>Repeat new password</span><input id="rp2" type="password" required autocomplete="new-password"/></label>
+      <div class="note">At least 8 characters, with letters and numbers.</div>
+      <div class="err" id="rerr"></div>
+      <button class="btn" type="submit" id="rbtn">Reset and sign in</button>
+      <button class="linkbtn" type="button" id="backLogin">Back to sign in</button>
+    </div>
+  </form>
+</div>
+
+<!-- CONNECT GITHUB -->
 <div class="center hide" id="vConnect">
-  <form class="login card" id="connectForm" style="max-width:520px">
+  <form class="login card" id="connectForm" style="max-width:540px">
     <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7"/></svg></span>
     <h1>Connect to GitHub</h1>
-    <p>One-time step on each computer or phone. Saving changes writes them to your GitHub repository, which updates the live site.</p>
+    <p>One-time step on each computer or phone. Saving writes your changes to GitHub, which updates the live site.</p>
     <div class="stack">
-      <div class="note">
-        <ol>
-          <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a></li>
-          <li>Name: <b>KCCS admin</b>. Expiration: 1 year.</li>
-          <li>Repository access: <b>Only select repositories</b> → <b>KCCS-Website</b></li>
-          <li>Permissions → Repository → <b>Contents: Read and write</b></li>
-          <li>Click <b>Generate token</b>, copy it and paste it below.</li>
-        </ol>
-      </div>
-      <label class="f"><span>GitHub token</span><input id="ct" type="password" placeholder="github_pat_…" required autocomplete="off"/></label>
+      <div class="note"><ol>
+        <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a></li>
+        <li>Name: <b>KCCS admin</b>. Expiration: 1 year.</li>
+        <li>Repository access: <b>Only select repositories</b> → <b>KCCS-Website</b></li>
+        <li>Permissions → Repository → <b>Contents: Read and write</b></li>
+        <li>Click <b>Generate token</b>, press the copy button, and paste it below.</li>
+      </ol></div>
+      <label class="f"><span>GitHub key</span><input id="ct" type="password" placeholder="github_pat_…" required autocomplete="off"/></label>
       <div class="grid3">
         <label class="f"><span>Owner</span><input id="co" value="ehsannoori51-source"/></label>
         <label class="f"><span>Repository</span><input id="cr" value="KCCS-Website"/></label>
@@ -158,255 +202,478 @@ hr{border:0;border-top:1px solid var(--line);margin:22px 0}
   </form>
 </div>
 
-<!-- 3. EDITOR -->
+<!-- EDITOR -->
 <div class="hide" id="vApp">
   <div class="top"><div class="top-in">
     <div class="t"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7"/></svg></span><span><b>KCCS Admin</b><small id="repoLbl"></small></span></div>
     <span class="status" id="status">All changes saved</span>
+    <button class="btn ghost sm hide" id="discardBtn">Discard changes</button>
     <a class="btn ghost sm" href="./" target="_blank" rel="noopener">View site</a>
     <button class="btn sm" id="saveBtn">Save &amp; publish</button>
     <button class="btn ghost sm" id="logoutBtn">Sign out</button>
   </div></div>
-
   <div class="wrap">
     <nav class="side card" id="side">
-      <button data-p="general" class="on">General</button>
+      <span class="grp">Content</span>
+      <button data-p="texts" class="on">Page texts</button>
+      <button data-p="general">Company &amp; numbers</button>
       <button data-p="contact">Contact &amp; hours</button>
       <button data-p="pricing">Pricing</button>
-      <button data-p="photos">Photos &amp; gallery</button>
       <button data-p="chambers">Chambers</button>
       <button data-p="services">Services</button>
       <button data-p="testimonials">Testimonials</button>
       <button data-p="faq">FAQ</button>
+      <span class="grp">Media &amp; look</span>
+      <button data-p="photos">Photos &amp; gallery</button>
+      <button data-p="branding">Logo &amp; colours</button>
+      <span class="grp">Settings</span>
+      <button data-p="sections">Show / hide sections</button>
+      <button data-p="announce">Announcement bar</button>
+      <button data-p="seo">Search &amp; sharing</button>
+      <button data-p="history">History &amp; backup</button>
+      <button data-p="security">Security</button>
     </nav>
     <main class="pane card" id="pane"></main>
   </div>
 </div>
-
+<input type="file" id="importFile" accept="application/json,.json" hidden/>
 <div class="toast" id="toast"></div>
 
 <script>
 (function(){
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-/* Sign-in check. Only a hash of "username:password" is stored here, not the password itself.
-   Real write access is protected by the GitHub token, which never leaves this browser. */
-const LOGIN_HASH='5602be6a36eae4f62280357a3193c850973b3785fa5dc158c5c94e4d467e2041';
+
+/* ── Defaults for settings added after launch (merged into older content.json files) ── */
+const NEW_DEFAULTS={
+  contact:{email:'',instagram:'',linkedin:''},
+  texts:{chambersTitle:'Four climates.',chambersSoft:'One facility.',chambersLead:'Set points and occupancy, updated daily. Book space early for the fullest chambers.',
+    servicesTitle:'End-to-end cold chain.',servicesLead:'One point of contact for storage, handling and delivery.',
+    pricingTitle:'Clear rates.',pricingSoft:'Instant estimate.',pricingLead:'All prices in AFN. Our team confirms exact pricing within 24 hours.',pricingNote:'Estimate at standard rates. Volume and long-contract discounts available.',
+    galleryTitle:'Inside KCCS.',galleryLead:'Real photos from our site in Kabul. Tap a photo to view it full size.',
+    contactTitle:"Let's keep it cold.",contactLead:'We usually reply within a few hours during business hours.'},
+  settings:{accent:'#0a6cff',logoHeight:36,showNameWithLogo:true,logoAsFavicon:true,
+    sections:{heroPhotos:true,stats:true,trust:true,chambers:true,services:true,pricing:true,about:true,gallery:true,testimonials:true,faq:true,contact:true,map:true,weather:true,holidays:true,whatsappButton:true},
+    announcement:{on:false,text:'',link:''},
+    seo:{title:'KCCS · Kabul Central Cold Storage',description:'Temperature-controlled storage, pharmaceutical cold chain and refrigerated distribution in Kabul, Afghanistan.',shareImage:'photos/kccs-courtyard.jpg'}}
+};
+const isObj=v=>v&&typeof v==='object'&&!Array.isArray(v);
+const fill=(def,cur)=>{const o=isObj(cur)?{...cur}:{};for(const k in def){if(!(k in o))o[k]=structuredClone(def[k]);else if(isObj(def[k])&&isObj(o[k]))o[k]=fill(def[k],o[k])}return o};
+
+/* ── Sign-in. Built-in account is used until a new password is saved (admin-auth.json). ── */
+const BUILTIN_HASH='5602be6a36eae4f62280357a3193c850973b3785fa5dc158c5c94e4d467e2041'; // sha256("Atif:Safi@456")
+const DEFAULT_REPO={owner:'ehsannoori51-source',repo:'KCCS-Website',branch:'main'};
+const IDLE_MIN=30;
 const store={get:k=>{try{return localStorage.getItem(k)||sessionStorage.getItem(k)}catch(e){return null}},
   set:(k,v,keep)=>{try{(keep?localStorage:sessionStorage).setItem(k,v)}catch(e){}},
   del:k=>{try{localStorage.removeItem(k);sessionStorage.removeItem(k)}catch(e){}}};
 
-let G=null;      // {token,owner,repo,branch}
-let C=null;      // content
-let contentSha=null, dirty=false, page='general', repoImages=[];
+let G=null,C=null,contentSha=null,savedJSON='',page='texts',repoImages=[],AUTH=null,authSha=null;
 
-function toast(msg,bad){const t=$('#toast');t.textContent=msg;t.classList.toggle('bad',!!bad);t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),bad?6000:3200)}
-function show(v){['vLogin','vConnect','vApp'].forEach(id=>$('#'+id).classList.toggle('hide',id!==v))}
-async function sha256(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+function toast(m,bad){const t=$('#toast');t.textContent=m;t.classList.toggle('bad',!!bad);t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),bad?7000:3500)}
+function show(v){['vLogin','vReset','vConnect','vApp'].forEach(id=>$('#'+id).classList.toggle('hide',id!==v))}
+const hex=b=>[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+async function sha256(s){return hex(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))}
+async function pbkdf2(pw,saltHex,iter){const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveBits']);
+  const salt=Uint8Array.from(saltHex.match(/../g).map(h=>parseInt(h,16)));return hex(await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt,iterations:iter},key,256))}
 const b64enc=str=>{const bytes=new TextEncoder().encode(str);let bin='';bytes.forEach(b=>bin+=String.fromCharCode(b));return btoa(bin)};
 const b64dec=b64=>new TextDecoder().decode(Uint8Array.from(atob(b64.replace(/\n/g,'')),c=>c.charCodeAt(0)));
+const clean=v=>String(v||'').replace(/[^\x21-\x7E]/g,'');
+const tokenOk=t=>/^(github_pat_|ghp_)[A-Za-z0-9_]{20,}$/.test(t);
+const pwOk=p=>p.length>=8&&/[A-Za-z]/.test(p)&&/\d/.test(p);
+const pwScore=p=>[p.length>=8,p.length>=12,/[a-z]/.test(p)&&/[A-Z]/.test(p),/\d/.test(p),/[^A-Za-z0-9]/.test(p)].filter(Boolean).length;
+function meter(input,bar){input.addEventListener('input',()=>{const s=pwScore(input.value);bar.style.width=(s*20)+'%';bar.style.background=s<3?'#e11d48':s<4?'#f59e0b':'#16a34a'})}
 
 /* ── GitHub API ── */
-async function gh(path,opt={}){
-  let r;try{r=await fetch(`https://api.github.com/repos/${G.owner}/${G.repo}${path?'/'+path:''}`,{...opt,headers:{'Authorization':'Bearer '+G.token,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28',...(opt.body?{'Content-Type':'application/json'}:{})}})}
-  catch(e){throw new Error(location.protocol==='file:'?'Open the admin from the live site (https://kccs.dpdns.org/admin.html), not from a file on your computer.':'Could not reach GitHub ('+e.message+'). Check the internet connection and try again.')}
+async function gh(path,opt={},cfg=G){
+  let r;
+  try{r=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}${path?'/'+path:''}`,{...opt,headers:{'Authorization':'Bearer '+cfg.token,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28',...(opt.body?{'Content-Type':'application/json'}:{})}})}
+  catch(e){throw new Error(location.protocol==='file:'?'Open the admin from https://kccs.dpdns.org/admin.html, not from a file.':'Could not reach GitHub ('+e.message+'). Check the internet connection and try again.')}
   if(!r.ok){let m='';try{m=(await r.json()).message}catch(e){}const e=new Error(m||('GitHub error '+r.status));e.status=r.status;throw e}
   return r.status===204?null:r.json();
 }
 const enc=p=>p.split('/').map(encodeURIComponent).join('/');
-async function getFile(path){try{return await gh(`contents/${enc(path)}?ref=${G.branch}&t=${Date.now()}`)}catch(e){if(e.status===404)return null;throw e}}
-async function putFile(path,b64,message,sha){return gh(`contents/${enc(path)}`,{method:'PUT',body:JSON.stringify({message,content:b64,branch:G.branch,...(sha?{sha}:{})})})}
+async function getFile(path,ref,cfg=G){try{return await gh(`contents/${enc(path)}?ref=${ref||cfg.branch}&t=${Date.now()}`,{},cfg)}catch(e){if(e.status===404)return null;throw e}}
+async function putFile(path,b64,message,sha,cfg=G){return gh(`contents/${enc(path)}`,{method:'PUT',body:JSON.stringify({message,content:b64,branch:cfg.branch,...(sha?{sha}:{})})},cfg)}
 async function delFile(path,sha,message){return gh(`contents/${enc(path)}`,{method:'DELETE',body:JSON.stringify({message,sha,branch:G.branch})})}
-const rawUrl=p=>`https://raw.githubusercontent.com/${G.owner}/${G.repo}/${G.branch}/${enc(p)}`;
+const LOCAL={};
+const rawUrl=p=>LOCAL[p]?LOCAL[p]:p?`https://raw.githubusercontent.com/${(G||DEFAULT_REPO).owner}/${(G||DEFAULT_REPO).repo}/${(G||DEFAULT_REPO).branch}/${enc(p)}`:'';
 
-/* ── LOGIN ── */
-$('#loginForm').addEventListener('submit',async e=>{e.preventDefault();
-  const h=await sha256($('#lu').value.trim()+':'+$('#lp').value);
-  if(h!==LOGIN_HASH){$('#lerr').textContent='Wrong username or password.';return}
-  sessionStorage.setItem('kccs_in','1');$('#lp').value='';afterLogin()});
+/* ── Account file (public repo, so only a salted PBKDF2 hash is stored) ── */
+async function loadAuth(){
+  const R=DEFAULT_REPO;
+  try{const r=await fetch(`https://api.github.com/repos/${R.owner}/${R.repo}/contents/admin-auth.json?ref=${R.branch}&t=${Date.now()}`,{cache:'no-store'});
+    if(r.status===404){AUTH=null;return}
+    if(r.ok){const j=await r.json();AUTH=JSON.parse(b64dec(j.content));authSha=j.sha;return}}catch(e){}
+  try{const r=await fetch('admin-auth.json?v='+Date.now(),{cache:'no-store'});AUTH=r.ok?await r.json():null}catch(e){AUTH=null}
+}
+async function checkLogin(u,p){
+  if(AUTH&&AUTH.hash){return u===AUTH.user&&(await pbkdf2(p,AUTH.salt,AUTH.iter))===AUTH.hash}
+  return (await sha256(u+':'+p))===BUILTIN_HASH;
+}
+async function writeAuth(user,pw,cfg=G){
+  const salt=hex(crypto.getRandomValues(new Uint8Array(16)).buffer),iter=210000;
+  const obj={v:1,user,salt,iter,hash:await pbkdf2(pw,salt,iter),updated:new Date().toISOString()};
+  const cur=await getFile('admin-auth.json',null,cfg);
+  const r=await putFile('admin-auth.json',b64enc(JSON.stringify(obj,null,2)+'\n'),'Update admin sign-in (admin)',cur&&cur.sha,cfg);
+  AUTH=obj;authSha=r.content.sha;
+}
+
+/* ── Session ── */
+function touch(){sessionStorage.setItem('kccs_seen',Date.now())}
+['click','keydown','pointermove'].forEach(ev=>addEventListener(ev,()=>{if(sessionStorage.getItem('kccs_in'))touch()},{passive:true}));
+setInterval(()=>{if(sessionStorage.getItem('kccs_in')!=='1')return;const last=+sessionStorage.getItem('kccs_seen')||0;
+  if(Date.now()-last>IDLE_MIN*60000&&!isDirty()){sessionStorage.removeItem('kccs_in');location.reload()}},30000);
+
+/* ── SIGN IN ── */
+$('#loginForm').addEventListener('submit',async e=>{e.preventDefault();$('#lbtn').disabled=true;$('#lerr').textContent='';
+  try{await loadAuth();
+    if(!(await checkLogin($('#lu').value.trim(),$('#lp').value))){$('#lerr').textContent='Wrong username or password.';return}
+    sessionStorage.setItem('kccs_in','1');touch();$('#lp').value='';afterLogin()}
+  finally{$('#lbtn').disabled=false}});
 function afterLogin(){const s=store.get('kccs_gh');if(s){try{G=JSON.parse(s);return boot()}catch(e){}}show('vConnect')}
+
+/* ── RESET ── */
+$('#forgotLink').onclick=()=>{show('vReset');$('#rerr').textContent=''};
+$('#backLogin').onclick=()=>show('vLogin');
+meter($('#rp1'),$('#rmeter'));
+$('#resetForm').addEventListener('submit',async e=>{e.preventDefault();const err=$('#rerr');err.textContent='';
+  const tok=clean($('#rt').value),u=$('#ru').value.trim(),p1=$('#rp1').value,p2=$('#rp2').value;
+  if(!tokenOk(tok)){err.textContent='That does not look like a GitHub key. It starts with github_pat_.';return}
+  if(u.length<3){err.textContent='Username must be at least 3 characters.';return}
+  if(!pwOk(p1)){err.textContent='Password needs at least 8 characters, with letters and numbers.';return}
+  if(p1!==p2){err.textContent='The two passwords do not match.';return}
+  const cfg={...DEFAULT_REPO,token:tok};$('#rbtn').disabled=true;
+  try{const r=await gh('',{},cfg);if(!r.permissions||!r.permissions.push)throw new Error('This key cannot change the website. It needs "Contents: Read and write".');
+    await writeAuth(u,p1,cfg);G=cfg;store.set('kccs_gh',JSON.stringify(G),true);
+    sessionStorage.setItem('kccs_in','1');touch();$('#rp1').value=$('#rp2').value=$('#rt').value='';
+    toast('Password changed. Use the new password next time you sign in.');boot()}
+  catch(x){err.textContent=x.status===401?'GitHub did not accept this key. Copy it again.':x.message}
+  finally{$('#rbtn').disabled=false}});
 
 /* ── CONNECT ── */
 $('#connectForm').addEventListener('submit',async e=>{e.preventDefault();
-  const tok=$('#ct').value.replace(/[^\x21-\x7E]/g,'');
-  if(!/^(github_pat_|ghp_)[A-Za-z0-9_]{20,}$/.test(tok)){$('#cerr').textContent='This does not look like a GitHub token. It should start with github_pat_ and contain only letters, numbers and _. Copy it again from GitHub.';return}
-  G={token:tok,owner:$('#co').value.replace(/[^\x21-\x7E]/g,''),repo:$('#cr').value.replace(/[^\x21-\x7E]/g,''),branch:$('#cb').value.replace(/[^\x21-\x7E]/g,'')||'main'};
+  const tok=clean($('#ct').value);
+  if(!tokenOk(tok)){$('#cerr').textContent='This does not look like a GitHub key. It should start with github_pat_ and contain only letters, numbers and _. Copy it again from GitHub.';return}
+  G={token:tok,owner:clean($('#co').value),repo:clean($('#cr').value),branch:clean($('#cb').value)||'main'};
   $('#cbtn').disabled=true;$('#cerr').textContent='';
-  try{const r=await gh('');if(!r.permissions||!r.permissions.push)throw new Error('This token cannot write to the repository. Give it "Contents: Read and write".');
+  try{const r=await gh('');if(!r.permissions||!r.permissions.push)throw new Error('This key cannot write to the repository. Give it "Contents: Read and write".');
     store.set('kccs_gh',JSON.stringify(G),$('#cremember').checked);$('#ct').value='';boot()}
-  catch(err){$('#cerr').textContent=err.status===401?'Token not accepted. Check that you copied all of it.':err.status===404?'Repository not found, or the token has no access to it.':err.message;G=null}
+  catch(err){$('#cerr').textContent=err.status===401?'Key not accepted. Check that you copied all of it.':err.status===404?'Repository not found, or the key has no access to it.':err.message;G=null}
   finally{$('#cbtn').disabled=false}});
 
-$('#logoutBtn').onclick=()=>{if(dirty&&!confirm('You have unsaved changes. Sign out anyway?'))return;sessionStorage.removeItem('kccs_in');
-  if(confirm('Also forget the GitHub token on this device?'))store.del('kccs_gh');location.reload()};
+$('#logoutBtn').onclick=()=>{if(isDirty()&&!confirm('You have unsaved changes. Sign out anyway?'))return;sessionStorage.removeItem('kccs_in');
+  if(confirm('Also forget the GitHub key on this device? Choose OK on shared computers.'))store.del('kccs_gh');location.reload()};
 
 /* ── LOAD ── */
 async function boot(){show('vApp');$('#repoLbl').textContent=`${G.owner}/${G.repo} · ${G.branch}`;$('#pane').innerHTML='<p class="sub">Loading…</p>';
   try{
     const f=await getFile('content.json');
-    if(f){C=JSON.parse(b64dec(f.content));contentSha=f.sha}
-    else{const r=await fetch('content.json?v='+Date.now()).catch(()=>null);C=r&&r.ok?await r.json():null;contentSha=null;
-      if(!C){$('#pane').innerHTML='<p class="sub">content.json was not found in the repository. Upload the website files first.</p>';return}}
-    await loadImages();setDirty(false);render();
+    if(!f){$('#pane').innerHTML='<p class="sub">content.json was not found in the repository. Upload the website files first.</p>';return}
+    C=fill(NEW_DEFAULTS,JSON.parse(b64dec(f.content)));contentSha=f.sha;savedJSON=JSON.stringify(C);
+    await loadImages();updateStatus();render();
   }catch(err){
-    if(err.status===401){store.del('kccs_gh');toast('Your GitHub token has expired or was revoked. Connect again.',1);show('vConnect');return}
-    $('#pane').innerHTML=`<p class="sub">Could not load: ${esc(err.message)}</p>`}
+    if(err.status===401){store.del('kccs_gh');toast('Your GitHub key has expired or was removed. Connect again.',1);show('vConnect');return}
+    $('#pane').innerHTML=`<p class="sub">Could not load: ${esc(err.message)}</p><button class="btn" onclick="location.reload()">Try again</button>`}
 }
-async function loadImages(){
-  const out=[];
-  for(const dir of ['','photos']){try{const l=await gh(`contents/${dir}?ref=${G.branch}&t=${Date.now()}`);
-    l.filter(x=>x.type==='file'&&/\.(jpe?g|png|webp|gif)$/i.test(x.name)).forEach(x=>out.push({path:x.path,sha:x.sha,size:x.size}))}catch(e){if(e.status!==404)throw e}}
-  repoImages=out;
-}
+async function loadImages(){const out=[];
+  for(const dir of ['','photos','branding']){try{const l=await gh(`contents/${dir}?ref=${G.branch}&t=${Date.now()}`);
+    l.filter(x=>x.type==='file'&&/\.(jpe?g|png|webp|gif|svg)$/i.test(x.name)).forEach(x=>out.push({path:x.path,sha:x.sha,size:x.size}))}catch(e){if(e.status!==404)throw e}}
+  repoImages=out}
 
 /* ── STATE ── */
-function setDirty(v){dirty=v;const s=$('#status');s.textContent=v?'Unsaved changes':'All changes saved';s.classList.toggle('dirty',v)}
-addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue=''}});
+const isDirty=()=>C&&JSON.stringify(C)!==savedJSON;
+function updateStatus(){const d=isDirty(),s=$('#status');s.textContent=d?'Unsaved changes':'All changes saved';s.classList.toggle('dirty',d);$('#discardBtn').classList.toggle('hide',!d)}
+const changed=()=>updateStatus();
+addEventListener('beforeunload',e=>{if(isDirty()){e.preventDefault();e.returnValue=''}});
+$('#discardBtn').onclick=()=>{if(!confirm('Discard all unsaved changes?'))return;C=JSON.parse(savedJSON);updateStatus();render();toast('Changes discarded.')};
 const getP=(o,p)=>p.split('.').reduce((a,k)=>a==null?a:a[k],o);
 const setP=(o,p,v)=>{const ks=p.split('.');let a=o;ks.slice(0,-1).forEach(k=>{if(a[k]==null)a[k]={};a=a[k]});a[ks.at(-1)]=v};
 
-/* bind inputs: data-k="path" data-type="num|bool|lines" */
 function bind(root){
   root.querySelectorAll('[data-k]').forEach(el=>{
     const k=el.dataset.k,t=el.dataset.type,v=getP(C,k);
-    if(t==='bool')el.checked=!!v;else if(t==='lines')el.value=(v||[]).join('\n');else el.value=v??'';
-    el.addEventListener(el.type==='checkbox'||el.tagName==='SELECT'?'change':'input',()=>{
-      let nv=t==='bool'?el.checked:t==='num'?(el.value===''?0:Number(el.value)):t==='lines'?el.value.split('\n').map(s=>s.trim()).filter(Boolean):el.value;
-      setP(C,k,nv);setDirty(true)})});
+    if(t==='bool')el.checked=v!==false&&v!=null?!!v:false;else if(t==='lines')el.value=(v||[]).join('\n');else el.value=v??'';
+    if(t==='bool'&&v==null)el.checked=false;
+    el.addEventListener(el.type==='checkbox'||el.tagName==='SELECT'||el.type==='color'?'change':'input',()=>{
+      const nv=t==='bool'?el.checked:t==='num'?(el.value===''?0:Number(el.value)):t==='lines'?el.value.split('\n').map(s=>s.trim()).filter(Boolean):el.value;
+      setP(C,k,nv);changed();if(el.dataset.rerender)render()})});
 }
-const fld=(label,k,o={})=>`<label class="f ${o.full?'full':''}"><span>${label}</span>${o.area?`<textarea data-k="${k}" ${o.type?`data-type="${o.type}"`:''} rows="${o.rows||3}"></textarea>`:o.select?`<select data-k="${k}">${o.select.map(x=>`<option value="${x}">${x}</option>`).join('')}</select>`:`<input data-k="${k}" ${o.type==='num'?'type="number" data-type="num"':''} ${o.ph?`placeholder="${esc(o.ph)}"`:''}/>`}</label>`;
-const chk=(label,k)=>`<label class="chk"><input type="checkbox" data-k="${k}" data-type="bool"/> ${label}</label>`;
+const fld=(label,k,o={})=>`<label class="f ${o.full?'full':''}"><span>${label}</span>${o.area?`<textarea data-k="${k}" ${o.type?`data-type="${o.type}"`:''} rows="${o.rows||3}" ${o.ph?`placeholder="${esc(o.ph)}"`:''}></textarea>`:o.select?`<select data-k="${k}" ${o.rr?'data-rerender="1"':''}>${o.select.map(x=>Array.isArray(x)?`<option value="${esc(x[0])}">${esc(x[1])}</option>`:`<option value="${esc(x)}">${esc(x)}</option>`).join('')}</select>`:`<input data-k="${k}" ${o.type==='num'?'type="number" data-type="num"':''} ${o.ph?`placeholder="${esc(o.ph)}"`:''} ${o.max?`maxlength="${o.max}"`:''}/>`}</label>`;
+const chk=(label,k,rr)=>`<label class="chk"><input type="checkbox" data-k="${k}" data-type="bool" ${rr?'data-rerender="1"':''}/> ${label}</label>`;
+const tog=(title,desc,k)=>`<label class="tg"><span><b>${title}</b><small>${desc}</small></span><span class="sw"><input type="checkbox" data-k="${k}" data-type="bool"/><i></i></span></label>`;
 
-/* generic list editor */
 function listEditor(key,title,fields,blank,labelFn){
   const arr=getP(C,key)||[];
   return `<div class="list">${arr.map((it,i)=>`<div class="item"><div class="item-h"><b>${esc(labelFn?labelFn(it,i):title+' '+(i+1))}</b><span class="acts">
-    <button class="ib" data-mv="${key}|${i}|-1" title="Move up">↑</button><button class="ib" data-mv="${key}|${i}|1" title="Move down">↓</button><button class="ib del" data-rm="${key}|${i}" title="Delete">✕</button></span></div>
+    <button class="ib" data-mv="${key}|${i}|-1" title="Move up">↑</button><button class="ib" data-mv="${key}|${i}|1" title="Move down">↓</button><button class="ib" data-dup="${key}|${i}" title="Duplicate">⧉</button><button class="ib del" data-rm="${key}|${i}" title="Delete">✕</button></span></div>
     <div class="grid2">${fields.map(f=>f[0]==='chk'?chk(f[1],`${key}.${i}.${f[2]}`):fld(f[0],`${key}.${i}.${f[1]}`,f[2]||{})).join('')}</div></div>`).join('')}</div>
     <button class="btn ghost sm add" data-add="${key}" data-blank='${esc(JSON.stringify(blank))}'>+ Add ${title.toLowerCase()}</button>`;
 }
 function wireLists(root){
-  root.querySelectorAll('[data-mv]').forEach(b=>b.onclick=()=>{const[k,i,d]=b.dataset.mv.split('|');const a=getP(C,k),j=+i+ +d;if(j<0||j>=a.length)return;[a[i],a[j]]=[a[j],a[i]];setDirty(true);render()});
-  root.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{const[k,i]=b.dataset.rm.split('|');if(!confirm('Delete this item?'))return;getP(C,k).splice(+i,1);setDirty(true);render()});
-  root.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>{const k=b.dataset.add;if(!getP(C,k))setP(C,k,[]);getP(C,k).push(JSON.parse(b.dataset.blank));setDirty(true);render()});
+  root.querySelectorAll('[data-mv]').forEach(b=>b.onclick=()=>{const[k,i,d]=b.dataset.mv.split('|');const a=getP(C,k),j=+i+ +d;if(j<0||j>=a.length)return;[a[i],a[j]]=[a[j],a[i]];changed();render()});
+  root.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{const[k,i]=b.dataset.rm.split('|');if(!confirm('Delete this item?'))return;getP(C,k).splice(+i,1);changed();render()});
+  root.querySelectorAll('[data-dup]').forEach(b=>b.onclick=()=>{const[k,i]=b.dataset.dup.split('|');const a=getP(C,k);a.splice(+i+1,0,structuredClone(a[+i]));changed();render()});
+  root.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>{const k=b.dataset.add;if(!getP(C,k))setP(C,k,[]);getP(C,k).push(JSON.parse(b.dataset.blank));changed();render()});
 }
+const imgOptions=(sel,filter)=>`<option value="">—</option>`+repoImages.filter(filter||(()=>true)).map(im=>`<option value="${esc(im.path)}" ${im.path===sel?'selected':''}>${esc(im.path)}</option>`).join('');
+const fmtDate=d=>new Date(d).toLocaleString('en-GB',{timeZone:'Asia/Kabul',day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
 
 /* ── PAGES ── */
 const PAGES={
-general:()=>`<h2>General</h2><p class="sub">Main headline, About text and key numbers.</p>
-  <div class="grid2">
-    ${fld('Short name','site.name')}${fld('Full name','site.fullName')}
-    ${fld('Headline, start','site.heroTitle')}${fld('Headline, blue word','site.heroHighlight')}
-    ${fld('Headline, end','site.heroTitleEnd')}${fld('Logo file (upload in Photos)','site.logo')}
-    ${fld('Intro text','site.heroText',{area:1,full:1})}
-    ${fld('Highlight tags (one per line)','site.trust',{area:1,type:'lines',rows:5,full:1})}
-  </div><hr/>
-  <h3 style="margin-bottom:14px">Numbers</h3>
-  <div class="grid2">${fld('Capacity (m²)','stats.capacity',{type:'num'})}${fld('Satisfaction (%)','stats.satisfaction',{type:'num'})}${fld('Deliveries','stats.deliveries',{type:'num'})}${fld('Years badge','stats.years')}</div><hr/>
-  <h3 style="margin-bottom:14px">About section</h3>
+texts:()=>`<h2>Page texts</h2><p class="sub">Headline and the titles of each section on the home page.</p>
+  <h3>Top of the page</h3>
+  <div class="grid3">${fld('Headline, start','site.heroTitle')}${fld('Headline, blue word','site.heroHighlight')}${fld('Headline, end','site.heroTitleEnd')}</div>
+  <div class="grid2" style="margin-top:14px">${fld('Intro text','site.heroText',{area:1,full:1})}${fld('Highlight tags under the photos (one per line)','site.trust',{area:1,type:'lines',rows:5,full:1})}</div><hr/>
+  <h3>Chambers</h3><div class="grid2">${fld('Title','texts.chambersTitle')}${fld('Title, grey part','texts.chambersSoft')}${fld('Intro','texts.chambersLead',{area:1,full:1,rows:2})}</div><hr/>
+  <h3>Services</h3><div class="grid2">${fld('Title','texts.servicesTitle')}${fld('Intro','texts.servicesLead')}</div><hr/>
+  <h3>Pricing</h3><div class="grid2">${fld('Title','texts.pricingTitle')}${fld('Title, grey part','texts.pricingSoft')}${fld('Intro','texts.pricingLead',{full:1})}${fld('Small note under the total','texts.pricingNote',{full:1})}</div><hr/>
+  <h3>Gallery</h3><div class="grid2">${fld('Title','texts.galleryTitle')}${fld('Intro','texts.galleryLead')}</div><hr/>
+  <h3>Contact</h3><div class="grid2">${fld('Title','texts.contactTitle')}${fld('Intro','texts.contactLead')}</div>`,
+
+general:()=>`<h2>Company &amp; numbers</h2><p class="sub">Company name, key figures and the About section.</p>
+  <div class="grid2">${fld('Short name','site.name')}${fld('Full name','site.fullName')}</div><hr/>
+  <h3>Numbers</h3>
+  <div class="grid2">${fld('Capacity (m²)','stats.capacity',{type:'num'})}${fld('Satisfaction (%)','stats.satisfaction',{type:'num'})}${fld('Deliveries','stats.deliveries',{type:'num'})}${fld('Years badge (e.g. 10+)','stats.years')}</div><hr/>
+  <h3>About section</h3>
   <div class="grid2">${fld('Title','site.aboutTitle',{full:1})}${fld('Text','site.aboutText',{area:1,full:1,rows:4})}${fld('Points (one per line)','site.aboutPoints',{area:1,type:'lines',rows:6,full:1})}</div>`,
 
-contact:()=>`<h2>Contact &amp; hours</h2><p class="sub">Phone numbers, WhatsApp, address, map and opening hours.</p>
+contact:()=>`<h2>Contact &amp; hours</h2><p class="sub">Leave a field empty to hide it from the site.</p>
   <div class="grid2">
     ${fld('Phone 1','contact.phone1',{ph:'+93 7xx xxx xxx'})}${fld('Phone 2','contact.phone2')}
     ${fld('24/7 emergency line','contact.emergency')}${fld('WhatsApp number','contact.whatsapp')}
-    ${fld('Contact form sends to (email)','contact.formEmail')}${fld('Facebook page name','contact.facebook',{ph:'kccs.af'})}
+    ${fld('Public email (shown on site)','contact.email',{ph:'info@…'})}${fld('Contact form sends to (email)','contact.formEmail')}
+    ${fld('Facebook page name','contact.facebook',{ph:'kccs.af'})}${fld('Instagram username','contact.instagram',{ph:'kccs.af'})}
+    ${fld('LinkedIn page (name or full link)','contact.linkedin',{full:1})}
     ${fld('Address','contact.address',{full:1})}
     ${fld('Google Maps link','contact.mapsLink',{full:1})}
-    ${fld('Google Maps embed link (from Share → Embed a map, the src="…" part)','contact.mapEmbed',{area:1,full:1,rows:2})}
-  </div><hr/>
-  <h3 style="margin-bottom:14px">Opening hours (Saturday to Thursday)</h3>
-  <div class="grid2">${fld('Opens','hours.open',{ph:'07:00'})}${fld('Closes','hours.close',{ph:'18:00'})}${fld('Friday text','hours.fridayText')}<div style="align-self:end;padding-bottom:10px">${chk('Closed on Friday','hours.fridayClosed')}</div></div>`,
+    ${fld('Google Maps embed link (Share → Embed a map → the src="…" part)','contact.mapEmbed',{area:1,full:1,rows:2})}
+  </div>
+  <div class="note" style="margin-top:12px">If you change the "form sends to" email, FormSubmit will send an activation email to the new address after the first enquiry. Click the link in it, or enquiries won't arrive.</div><hr/>
+  <h3>Opening hours (Saturday to Thursday)</h3>
+  <div class="grid2">${fld('Opens (24h, e.g. 07:00)','hours.open',{ph:'07:00'})}${fld('Closes (24h, e.g. 18:00)','hours.close',{ph:'18:00'})}${fld('Friday text','hours.fridayText')}<div style="align-self:end;padding-bottom:10px">${chk('Closed on Friday','hours.fridayClosed')}</div></div>`,
 
-pricing:()=>`<h2>Pricing</h2><p class="sub">These rates appear in the quote calculator and the contact form's service list. Prices in AFN.</p>
-  ${listEditor('pricing','Service',[['Full name','name'],['Button label','short'],['Price (AFN)','price',{type:'num'}],['Unit (pallet, m³, trip…)','unit'],['chk','Charged per month','monthly'],['chk','Show "Popular" tag','popular']],{name:'New service',short:'New',price:0,unit:'pallet',monthly:true,popular:false},it=>it.name||'Service')}`,
+pricing:()=>`<h2>Pricing</h2><p class="sub">Rates for the quote calculator and the form's service list. Prices in AFN.</p>
+  ${listEditor('pricing','Service',[['Full name','name'],['Button label','short'],['Price (AFN)','price',{type:'num'}],['Unit (pallet, m³, trip…)','unit'],['chk','Charged per month','monthly'],['chk','Show "Popular" tag','popular']],{name:'New service',short:'New',price:0,unit:'pallet',monthly:true,popular:false},it=>`${it.name||'Service'} · AFN ${Number(it.price||0).toLocaleString('en-US')}`)}`,
 
-chambers:()=>`<h2>Chambers</h2><p class="sub">Set point and how full each chamber is. Above 80% shows in red.</p>
-  ${listEditor('chambers','Chamber',[['Name','name'],['Range text','range',{ph:'0°C → +8°C'}],['Temperature (e.g. −18)','temp'],['Used (%)','used',{type:'num'}]],{name:'New chamber',range:'',temp:'0',used:0},it=>it.name||'Chamber')}`,
+chambers:()=>`<h2>Chambers</h2><p class="sub">Set point and how full each chamber is. 80% or more shows in red.</p>
+  ${listEditor('chambers','Chamber',[['Name','name'],['Range text','range',{ph:'0°C → +8°C'}],['Temperature (e.g. −18)','temp'],['Used (%)','used',{type:'num'}]],{name:'New chamber',range:'',temp:'0',used:0},it=>`${it.name||'Chamber'} · ${it.used||0}% used`)}`,
 
 services:()=>`<h2>Services</h2><p class="sub">Service cards on the home page.</p>
-  ${listEditor('services','Service',[['Title','title'],['Icon','icon',{select:['snow','box','truck','pill','leaf','shield']}],['Text','text',{area:1,full:1,rows:2}]],{icon:'snow',title:'New service',text:''},it=>it.title||'Service')}`,
+  ${listEditor('services','Service',[['Title','title'],['Icon','icon',{select:[['snow','Snowflake'],['box','Box'],['truck','Truck'],['pill','Medicine'],['leaf','Produce'],['shield','Shield']]}],['Text','text',{area:1,full:1,rows:2}]],{icon:'snow',title:'New service',text:''},it=>it.title||'Service')}`,
 
-testimonials:()=>`<h2>Testimonials</h2><p class="sub">Client quotes. Only add quotes from real clients.</p>
+testimonials:()=>`<h2>Testimonials</h2><p class="sub">Only add quotes from real clients, with their permission.</p>
   ${listEditor('testimonials','Testimonial',[['Name','name'],['Role / company','role'],['Quote','quote',{area:1,full:1}]],{name:'',role:'',quote:''},it=>it.name||'Testimonial')}`,
 
 faq:()=>`<h2>FAQ</h2><p class="sub">Questions and answers.</p>
   ${listEditor('faq','Question',[['Question','q',{full:1}],['Answer','a',{area:1,full:1}]],{q:'New question',a:''},it=>it.q||'Question')}`,
 
 photos:()=>{
-  const used=p=>{const b=[];(C.heroPhotos||[]).forEach((h,i)=>{if(h===p)b.push('Top '+(i+1))});if(C.aboutPhoto===p)b.push('About');if((C.gallery||[]).some(g=>g.file===p))b.push('Gallery');if(C.site.logo===p)b.push('Logo');return b};
-  const opts=sel=>`<option value="">—</option>`+repoImages.map(im=>`<option value="${esc(im.path)}" ${im.path===sel?'selected':''}>${esc(im.path)}</option>`).join('');
-  const slot=(lbl,key,val)=>`<div class="slot"><span class="mono" style="font-size:.66rem;color:var(--mute)">${lbl}</span><div class="thumb" style="background-image:url('${val?rawUrl(val):''}')"></div><select data-slot="${key}">${opts(val)}</select></div>`;
-  return `<h2>Photos &amp; gallery</h2><p class="sub">Upload, delete and arrange photos. Large photos are resized automatically before upload.</p>
-  <div class="drop" id="drop"><b>Drop photos here or click to choose</b>JPG or PNG. Each photo is resized to 1600px and saved in the photos folder.<input type="file" id="file" accept="image/*" multiple hidden/></div>
+  const used=p=>{const b=[];(C.heroPhotos||[]).forEach((h,i)=>{if(h===p)b.push('Top '+(i+1))});if(C.aboutPhoto===p)b.push('About');if((C.gallery||[]).some(g=>g.file===p))b.push('Gallery');if(C.site.logo===p)b.push('Logo');if(C.settings.seo.shareImage===p)b.push('Share');return b};
+  const photoOnly=im=>!im.path.startsWith('branding/');
+  const slot=(lbl,key,val)=>`<div class="slot"><span class="mono" style="font-size:.66rem;color:var(--mute)">${lbl}</span><div class="thumb" style="background-image:url('${rawUrl(val)}')"></div><select data-slot="${key}">${imgOptions(val,photoOnly)}</select></div>`;
+  return `<h2>Photos &amp; gallery</h2><p class="sub">Upload, delete and arrange photos. Photos are resized to 1600px automatically. Upload your logo under <a href="#" data-go="branding">Logo &amp; colours</a> instead.</p>
+  <div class="drop" id="drop"><b>Drop photos here or click to choose</b>JPG or PNG. Saved in the photos folder.<input type="file" id="file" accept="image/*" multiple hidden/></div>
   <label class="chk" style="margin-top:10px"><input type="checkbox" id="addToGal" checked/> Add uploaded photos to the gallery</label>
-  <div class="prog hide" id="prog"><i></i></div>
-  <hr/>
-  <h3 style="margin-bottom:12px">Top of page &amp; About</h3>
-  <div class="slots">${slot('Top · large','heroPhotos.0',(C.heroPhotos||[])[0])}${slot('Top · small 1','heroPhotos.1',(C.heroPhotos||[])[1])}${slot('Top · small 2','heroPhotos.2',(C.heroPhotos||[])[2])}${slot('About photo','aboutPhoto',C.aboutPhoto)}</div>
-  <hr/>
-  <h3 style="margin-bottom:12px">Gallery order &amp; captions</h3>
+  <div class="prog hide" id="prog"><i></i></div><hr/>
+  <h3>Top of page &amp; About</h3>
+  <div class="slots">${slot('Top · large','heroPhotos.0',(C.heroPhotos||[])[0])}${slot('Top · small 1','heroPhotos.1',(C.heroPhotos||[])[1])}${slot('Top · small 2','heroPhotos.2',(C.heroPhotos||[])[2])}${slot('About photo','aboutPhoto',C.aboutPhoto)}</div><hr/>
+  <h3>Gallery order &amp; captions <span class="mono" style="font-size:.7rem;color:var(--mute);font-weight:400">· the first photo is shown large</span></h3>
   <div class="list gal-list">${(C.gallery||[]).map((g,i)=>`<div class="item"><div class="thumb" style="background-image:url('${rawUrl(g.file)}')"></div>
-    <label class="f"><span>${esc(g.file)}</span><input data-k="gallery.${i}.caption" placeholder="Caption"/></label>
-    <span class="acts" style="display:flex;gap:6px"><button class="ib" data-mv="gallery|${i}|-1" title="Move up">↑</button><button class="ib" data-mv="gallery|${i}|1" title="Move down">↓</button><button class="ib del" data-rm="gallery|${i}" title="Remove from gallery">✕</button></span></div>`).join('')||'<p class="sub">No photos in the gallery yet.</p>'}</div>
-  <hr/>
-  <h3 style="margin-bottom:4px">All photos in the repository</h3><p class="sub">Deleting removes the file from the website for good.</p>
-  <div class="photos">${repoImages.map(im=>{const b=used(im.path),inG=(C.gallery||[]).some(g=>g.file===im.path);return `<div class="ph"><div class="img" style="background-image:url('${rawUrl(im.path)}')"><span class="badges">${b.map(x=>`<span class="${x==='Gallery'?'g':''}">${x}</span>`).join('')}</span></div>
+    <label class="f"><span>${esc(g.file)}${g.file===C.site.logo?' · this is your logo':''}</span><input data-k="gallery.${i}.caption" placeholder="Caption"/></label>
+    <span class="acts"><button class="ib" data-mv="gallery|${i}|-1" title="Move up">↑</button><button class="ib" data-mv="gallery|${i}|1" title="Move down">↓</button><button class="ib del" data-rm="gallery|${i}" title="Remove from gallery">✕</button></span></div>`).join('')||'<p class="sub">No photos in the gallery yet.</p>'}</div><hr/>
+  <h3>All images in the repository</h3><p class="sub">Delete removes the file from the website for good.</p>
+  <div class="photos">${repoImages.map(im=>{const b=used(im.path),inG=(C.gallery||[]).some(g=>g.file===im.path),isLogo=im.path.startsWith('branding/')||C.site.logo===im.path;
+    return `<div class="ph"><div class="img ${isLogo?'contain':''}" style="background-image:url('${rawUrl(im.path)}')"><span class="badges">${b.map(x=>`<span class="${x==='Gallery'?'g':''}">${x}</span>`).join('')}</span></div>
     <div class="meta"><span class="name">${esc(im.path)} · ${Math.round(im.size/1024)} KB</span><div class="row">
-    ${inG?'':`<button class="btn ghost sm" data-addg="${esc(im.path)}">+ Gallery</button>`}
-    <button class="btn ghost sm" data-logo="${esc(im.path)}">Set as logo</button>
-    <button class="btn danger sm" data-del="${esc(im.path)}">Delete</button></div></div></div>`}).join('')}</div>`;
-}};
+    ${inG||isLogo?'':`<button class="btn ghost sm" data-addg="${esc(im.path)}">+ Gallery</button>`}
+    <button class="btn danger sm" data-del="${esc(im.path)}">Delete</button></div></div></div>`}).join('')}</div>`},
+
+branding:()=>{const S=C.settings,logo=C.site.logo,h=+S.logoHeight||36;
+  const sw=['#0a6cff','#0891b2','#0f766e','#16a34a','#7c3aed','#db2777','#ea580c','#0b1424'];
+  return `<h2>Logo &amp; colours</h2><p class="sub">Your logo appears in the header (and as the browser tab icon). It is never added to the gallery.</p>
+  <h3>Preview</h3>
+  <div class="preview-hdr" id="pvHdr">${logo?`<img src="${rawUrl(logo)}" style="height:${h}px" alt="Logo"/>`:`<span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7"/></svg></span>`}
+    ${!logo||S.showNameWithLogo!==false?`<span><b>${esc(C.site.name)}</b><small>${esc(C.site.fullName)}</small></span>`:''}</div>
+  <div class="row" style="margin-top:16px">
+    <button class="btn" id="logoUp">${logo?'Replace logo':'Upload logo'}</button>
+    ${logo?'<button class="btn danger" id="logoRm">Remove logo</button>':''}
+    <input type="file" id="logoFile" accept="image/png,image/jpeg,image/webp,image/svg+xml" hidden/>
+  </div>
+  <p class="sub" style="margin:10px 0 0">PNG with a transparent background looks best. Current file: <span class="mono">${esc(logo||'none, the snowflake mark is shown')}</span></p>
+  ${repoImages.some(i=>i.path.startsWith('branding/')&&i.path!==logo)?`<div style="margin-top:12px"><label class="f" style="max-width:420px"><span>Or pick an earlier logo</span><select id="logoPick">${imgOptions(logo,i=>i.path.startsWith('branding/'))}</select></label></div>`:''}
+  <hr/>
+  <div class="grid2">
+    <label class="f"><span>Logo height in header: <b id="lhV">${h}px</b></span><input type="range" min="24" max="64" step="2" data-k="settings.logoHeight" data-type="num" id="lh"/></label>
+    <div style="display:flex;flex-direction:column;gap:12px;justify-content:center">${chk('Show company name next to the logo','settings.showNameWithLogo',1)}${chk('Use logo as the browser tab icon','settings.logoAsFavicon')}</div>
+  </div><hr/>
+  <h3>Accent colour</h3><p class="sub" style="margin-bottom:12px">Used for buttons, links, highlights and the blue headline word.</p>
+  <div class="swatches">${sw.map(c=>`<button style="background:${c}" data-sw="${c}" class="${(S.accent||'').toLowerCase()===c?'on':''}" title="${c}"></button>`).join('')}<input type="color" data-k="settings.accent" data-rerender="1" title="Custom colour"/></div>`},
+
+sections:()=>`<h2>Show / hide sections</h2><p class="sub">Turn parts of the home page on or off. Hidden sections keep their content, so you can turn them back on any time.</p>
+  <div class="toggles">
+  ${tog('Top photos','Photo collage next to the headline','settings.sections.heroPhotos')}
+  ${tog('Numbers','Capacity, satisfaction, deliveries and the years badge','settings.sections.stats')}
+  ${tog('Highlight tags','Small tags under the top section','settings.sections.trust')}
+  ${tog('Chambers','Temperature and occupancy cards','settings.sections.chambers')}
+  ${tog('Services','Service cards','settings.sections.services')}
+  ${tog('Pricing & quote','Calculator with your rates','settings.sections.pricing')}
+  ${tog('About','About text and photo','settings.sections.about')}
+  ${tog('Gallery','Photo gallery','settings.sections.gallery')}
+  ${tog('Testimonials','Client quotes','settings.sections.testimonials')}
+  ${tog('FAQ','Questions and answers','settings.sections.faq')}
+  ${tog('Contact','Contact details, hours and form','settings.sections.contact')}
+  ${tog('Map','Google map under the contact form','settings.sections.map')}
+  ${tog('Weather tab','Kabul weather in the contact box','settings.sections.weather')}
+  ${tog('Holidays tab','Public holidays in the contact box','settings.sections.holidays')}
+  ${tog('WhatsApp button','Green button in the corner','settings.sections.whatsappButton')}
+  </div>`,
+
+announce:()=>{const A=C.settings.announcement;return `<h2>Announcement bar</h2><p class="sub">A thin bar at the very top of the site for news such as holiday closures or new space available. Visitors can close it.</p>
+  <div class="toggles" style="grid-template-columns:1fr">${tog('Show announcement','Turn on to display the bar','settings.announcement.on')}</div>
+  <div class="grid2" style="margin-top:14px">${fld('Message (keep it to one line)','settings.announcement.text',{full:1,max:160,ph:'Closed on 1–3 Eid days. Emergency line open 24/7.'})}${fld('Link (optional, e.g. #contact or a full web address)','settings.announcement.link',{full:1})}</div>
+  <h3 style="margin-top:22px">Preview</h3>
+  <div style="background:#0b1424;color:#fff;border-radius:10px;padding:10px 16px;text-align:center;font-size:.86rem" id="annPv">${esc(A.text||'Your message appears here')}</div>`},
+
+seo:()=>`<h2>Search &amp; sharing</h2><p class="sub">How the site appears on Google and when the link is shared on WhatsApp or Facebook.</p>
+  <div class="grid2">${fld('Page title (about 60 characters)','settings.seo.title',{full:1,max:70})}${fld('Description (about 155 characters)','settings.seo.description',{area:1,full:1,rows:3})}
+  <label class="f full"><span>Share image</span><select id="shareSel">${imgOptions(C.settings.seo.shareImage,i=>!i.path.startsWith('branding/'))}</select></label></div>
+  <h3 style="margin-top:22px">Google preview</h3>
+  <div class="item" style="background:#fff;max-width:620px"><div style="font-size:.8rem;color:#4d5156">kccs.dpdns.org</div><div style="color:#1a0dab;font-size:1.15rem;margin:2px 0" id="sPvT">${esc(C.settings.seo.title)}</div><div style="color:#4d5156;font-size:.88rem" id="sPvD">${esc(C.settings.seo.description)}</div></div>
+  <p class="sub" style="margin-top:12px">Search engines and WhatsApp may take days to show changes here.</p>`,
+
+history:()=>`<h2>History &amp; backup</h2><p class="sub">Every "Save &amp; publish" is kept. Load an older version to check it, then click "Save &amp; publish" to restore it.</p>
+  <div class="row" style="margin-bottom:18px"><button class="btn ghost sm" id="expBtn">Download backup</button><button class="btn ghost sm" id="impBtn">Import backup</button></div>
+  <div class="list hist" id="hist"><p class="sub">Loading history…</p></div>`,
+
+security:()=>`<h2>Security</h2><p class="sub">Change the admin username and password.</p>
+  <div class="grid2" style="max-width:640px">
+    <label class="f full"><span>Current password</span><input type="password" id="sp0" autocomplete="current-password"/></label>
+    <label class="f full"><span>New username</span><input id="su" value="${esc(AUTH?AUTH.user:'Atif')}" autocomplete="username"/></label>
+    <label class="f"><span>New password</span><input type="password" id="sp1" autocomplete="new-password"/></label>
+    <label class="f"><span>Repeat new password</span><input type="password" id="sp2" autocomplete="new-password"/></label>
+    <div class="pw-meter full" style="margin-top:0"><i id="smeter"></i></div>
+    <div class="note full">At least 8 characters, with letters and numbers. A longer password with a symbol is stronger.</div>
+    <div class="err full" id="serr"></div>
+    <div class="full"><button class="btn" id="spBtn">Change password</button></div>
+  </div><hr/>
+  <h3>Forgot the password?</h3>
+  <p class="sub">On the sign-in screen, click "Forgot password?" and paste your GitHub key. Only someone with that key can reset it.</p>
+  <h3>GitHub key on this device</h3>
+  <p class="sub">Connected to ${esc(G.owner)}/${esc(G.repo)}. Keys expire after the period you chose (normally 1 year). If this device is lost, delete the key at <a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener">github.com/settings/personal-access-tokens</a>.</p>
+  <button class="btn danger" id="forgetBtn">Forget the key on this device</button>
+  <hr/><div class="note">The admin page is part of a public website. Your password is stored only as a strong one-way hash, and nothing can be changed without the GitHub key. Sessions sign out after ${IDLE_MIN} minutes without activity.</div>`
+};
 
 function render(){
   $$('#side button').forEach(b=>b.classList.toggle('on',b.dataset.p===page));
   const p=$('#pane');p.innerHTML=PAGES[page]();bind(p);wireLists(p);
-  if(page==='photos')wirePhotos(p);
+  p.querySelectorAll('[data-go]').forEach(a=>a.onclick=e=>{e.preventDefault();page=a.dataset.go;render()});
+  ({photos:wirePhotos,branding:wireBranding,history:wireHistory,security:wireSecurity,announce:wireAnnounce,seo:wireSeo})[page]?.(p);
 }
 $$('#side button').forEach(b=>b.onclick=()=>{page=b.dataset.p;render();scrollTo({top:0})});
 
-/* ── PHOTOS ── */
+/* ── IMAGES ── */
+function resize(file,max=1600,q=.82,keepPng){return new Promise((res,rej)=>{
+  if(/svg/i.test(file.type)){const fr=new FileReader();fr.onload=()=>res({b64:fr.result.split(',')[1],ext:'svg'});fr.onerror=rej;fr.readAsDataURL(file);return}
+  const url=URL.createObjectURL(file),img=new Image();
+  img.onload=()=>{let{width:w,height:h}=img;const s=Math.min(1,max/Math.max(w,h));w=Math.round(w*s);h=Math.round(h*s);
+    const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');const png=keepPng||/png|webp/i.test(file.type);
+    if(!png){x.fillStyle='#fff';x.fillRect(0,0,w,h)}x.drawImage(img,0,0,w,h);URL.revokeObjectURL(url);
+    res({b64:c.toDataURL(png?'image/png':'image/jpeg',q).split(',')[1],ext:png?'png':'jpg'})};
+  img.onerror=()=>{URL.revokeObjectURL(url);rej(new Error('Not a readable image: '+file.name))};img.src=url})}
+const slug=n=>n.replace(/\.[^.]+$/,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40)||'photo';
+
 function wirePhotos(p){
   const drop=$('#drop'),file=$('#file');
   drop.onclick=()=>file.click();
   drop.ondragover=e=>{e.preventDefault();drop.classList.add('over')};drop.ondragleave=()=>drop.classList.remove('over');
   drop.ondrop=e=>{e.preventDefault();drop.classList.remove('over');upload([...e.dataTransfer.files])};
   file.onchange=()=>upload([...file.files]);
-  p.querySelectorAll('[data-slot]').forEach(s=>s.onchange=()=>{const k=s.dataset.slot;if(k.startsWith('heroPhotos')){C.heroPhotos=C.heroPhotos||[];C.heroPhotos[+k.split('.')[1]]=s.value}else C.aboutPhoto=s.value;setDirty(true);render()});
-  p.querySelectorAll('[data-addg]').forEach(b=>b.onclick=()=>{(C.gallery=C.gallery||[]).push({file:b.dataset.addg,caption:''});setDirty(true);render()});
-  p.querySelectorAll('[data-logo]').forEach(b=>b.onclick=()=>{C.site.logo=b.dataset.logo;setDirty(true);toast('Logo set. Click "Save & publish" to apply.');render()});
-  p.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>delPhoto(b.dataset.del,b));
+  p.querySelectorAll('[data-slot]').forEach(s=>s.onchange=()=>{const k=s.dataset.slot;if(k.startsWith('heroPhotos')){C.heroPhotos=C.heroPhotos||[];C.heroPhotos[+k.split('.')[1]]=s.value}else C.aboutPhoto=s.value;changed();render()});
+  p.querySelectorAll('[data-addg]').forEach(b=>b.onclick=()=>{(C.gallery=C.gallery||[]).push({file:b.dataset.addg,caption:''});changed();render()});
+  p.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>delImage(b.dataset.del,b));
 }
-function resize(file,max=1600,q=.82){return new Promise((res,rej)=>{const url=URL.createObjectURL(file),img=new Image();
-  img.onload=()=>{let{width:w,height:h}=img;const s=Math.min(1,max/Math.max(w,h));w=Math.round(w*s);h=Math.round(h*s);
-    const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');const png=/png/i.test(file.type);
-    if(!png){x.fillStyle='#fff';x.fillRect(0,0,w,h)}x.drawImage(img,0,0,w,h);URL.revokeObjectURL(url);
-    res({b64:c.toDataURL(png?'image/png':'image/jpeg',q).split(',')[1],ext:png?'png':'jpg'})};
-  img.onerror=()=>{URL.revokeObjectURL(url);rej(new Error('Not a readable image: '+file.name))};img.src=url})}
-const slug=n=>n.replace(/\.[^.]+$/,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40)||'photo';
 async function upload(files){
   files=files.filter(f=>f.type.startsWith('image/'));if(!files.length)return;
-  const prog=$('#prog'),bar=prog.querySelector('i');prog.classList.remove('hide');let done=0;const addG=$('#addToGal').checked;
+  const prog=$('#prog'),bar=prog.querySelector('i');prog.classList.remove('hide');let done=0,ok=0;const addG=$('#addToGal').checked;
   for(const f of files){
     try{const{b64,ext}=await resize(f);const path=`photos/${slug(f.name)}-${Date.now().toString(36)}.${ext}`;
       const r=await putFile(path,b64,`Upload photo ${path} (admin)`);
-      repoImages.push({path,sha:r.content.sha,size:r.content.size});
-      if(addG){(C.gallery=C.gallery||[]).push({file:path,caption:''});setDirty(true)}
+      repoImages.push({path,sha:r.content.sha,size:r.content.size});LOCAL[path]=`data:image/${ext==='jpg'?'jpeg':ext==='svg'?'svg+xml':ext};base64,${b64}`;ok++;
+      if(addG)(C.gallery=C.gallery||[]).push({file:path,caption:''});
     }catch(err){toast('Upload failed: '+err.message,1)}
     done++;bar.style.width=(done/files.length*100)+'%';
   }
-  toast(`${done} photo${done>1?'s':''} uploaded.${addG?' Click "Save & publish" to show them in the gallery.':''}`);render();
+  changed();toast(`${ok} photo${ok===1?'':'s'} uploaded.${addG&&ok?' Click "Save & publish" to show them on the site.':''}`);render();
 }
-async function delPhoto(path,btn){
+async function delImage(path,btn){
   if(!confirm(`Delete ${path} from the website? This cannot be undone.`))return;
-  const im=repoImages.find(x=>x.path===path);if(!im)return;btn.disabled=true;
-  try{await delFile(path,im.sha,`Delete photo ${path} (admin)`);repoImages=repoImages.filter(x=>x.path!==path);
+  const im=repoImages.find(x=>x.path===path);if(!im)return;if(btn)btn.disabled=true;
+  try{await delFile(path,im.sha,`Delete image ${path} (admin)`);repoImages=repoImages.filter(x=>x.path!==path);
     const before=JSON.stringify(C);
-    C.gallery=(C.gallery||[]).filter(g=>g.file!==path);
-    C.heroPhotos=(C.heroPhotos||[]).map(h=>h===path?'':h);if(C.aboutPhoto===path)C.aboutPhoto='';if(C.site.logo===path)C.site.logo='';
-    if(JSON.stringify(C)!==before){setDirty(true);toast('Photo deleted. Click "Save & publish" to update the pages that used it.')}else toast('Photo deleted.');
-    render()}
-  catch(err){btn.disabled=false;toast('Delete failed: '+err.message,1)}
+    C.gallery=(C.gallery||[]).filter(g=>g.file!==path);C.heroPhotos=(C.heroPhotos||[]).map(h=>h===path?'':h);
+    if(C.aboutPhoto===path)C.aboutPhoto='';if(C.site.logo===path)C.site.logo='';if(C.settings.seo.shareImage===path)C.settings.seo.shareImage='';
+    changed();toast(JSON.stringify(C)!==before?'Deleted. Click "Save & publish" to update the pages that used it.':'Deleted.');render()}
+  catch(err){if(btn)btn.disabled=false;toast('Delete failed: '+err.message,1)}
+}
+
+/* ── BRANDING ── */
+function wireBranding(p){
+  $('#logoUp').onclick=()=>$('#logoFile').click();
+  $('#logoFile').onchange=async()=>{const f=$('#logoFile').files[0];if(!f)return;const b=$('#logoUp');b.disabled=true;b.textContent='Uploading…';
+    try{const{b64,ext}=await resize(f,600,.9,true);const path=`branding/logo-${Date.now().toString(36)}.${ext}`;
+      const r=await putFile(path,b64,`Upload logo ${path} (admin)`);repoImages.push({path,sha:r.content.sha,size:r.content.size});LOCAL[path]=`data:image/${ext==='jpg'?'jpeg':ext==='svg'?'svg+xml':ext};base64,${b64}`;
+      setLogo(path);toast('Logo uploaded. Click "Save & publish" to show it on the site.')}
+    catch(err){toast('Upload failed: '+err.message,1);b.disabled=false}};
+  if($('#logoRm'))$('#logoRm').onclick=()=>{if(!confirm('Remove the logo from the header? The snowflake mark will be shown instead.'))return;C.site.logo='';changed();render()};
+  if($('#logoPick'))$('#logoPick').onchange=e=>setLogo(e.target.value);
+  const lh=$('#lh');lh.addEventListener('input',()=>{$('#lhV').textContent=lh.value+'px';const im=$('#pvHdr img');if(im)im.style.height=lh.value+'px'});
+  p.querySelectorAll('[data-sw]').forEach(b=>b.onclick=()=>{C.settings.accent=b.dataset.sw;changed();render()});
+}
+function setLogo(path){C.site.logo=path;C.gallery=(C.gallery||[]).filter(g=>g.file!==path);changed();render()}
+
+/* ── ANNOUNCEMENT / SEO ── */
+function wireAnnounce(p){const t=p.querySelector('[data-k="settings.announcement.text"]');t.addEventListener('input',()=>$('#annPv').textContent=t.value||'Your message appears here')}
+function wireSeo(p){
+  p.querySelector('[data-k="settings.seo.title"]').addEventListener('input',e=>$('#sPvT').textContent=e.target.value);
+  p.querySelector('[data-k="settings.seo.description"]').addEventListener('input',e=>$('#sPvD').textContent=e.target.value);
+  $('#shareSel').onchange=e=>{C.settings.seo.shareImage=e.target.value;changed()};
+}
+
+/* ── HISTORY & BACKUP ── */
+async function wireHistory(){
+  $('#expBtn').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(C,null,2)],{type:'application/json'}));
+    a.download=`kccs-content-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)};
+  $('#impBtn').onclick=()=>$('#importFile').click();
+  try{const list=await gh(`commits?path=content.json&sha=${G.branch}&per_page=25`);
+    $('#hist').innerHTML=list.map((c,i)=>`<div class="item"><span><b>${esc(c.commit.message.split('\n')[0])}</b><small>${fmtDate(c.commit.author.date)}${i===0?' · current live version':''}</small></span>
+      ${i===0?'':`<button class="btn ghost sm" data-ver="${c.sha}">Load this version</button>`}</div>`).join('')||'<p class="sub">No history yet.</p>';
+    $$('[data-ver]').forEach(b=>b.onclick=async()=>{if(isDirty()&&!confirm('Replace your unsaved changes with this older version?'))return;b.disabled=true;
+      try{const f=await getFile('content.json',b.dataset.ver);C=fill(NEW_DEFAULTS,JSON.parse(b64dec(f.content)));changed();toast('Older version loaded. Check it, then click "Save & publish" to restore it.');page='texts';render()}
+      catch(err){toast('Could not load: '+err.message,1);b.disabled=false}});
+  }catch(err){$('#hist').innerHTML=`<p class="sub">Could not load history: ${esc(err.message)}</p>`}
+}
+$('#importFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;
+  try{const j=JSON.parse(await f.text());if(!j.site||!j.contact)throw new Error('This is not a KCCS backup file.');
+    if(!confirm('Replace the current content with this backup? Nothing is published until you click "Save & publish".'))return;
+    C=fill(NEW_DEFAULTS,j);changed();page='texts';render();toast('Backup loaded. Click "Save & publish" to apply it.')}
+  catch(err){toast('Import failed: '+err.message,1)}finally{e.target.value=''}};
+
+/* ── SECURITY ── */
+function wireSecurity(){
+  meter($('#sp1'),$('#smeter'));
+  $('#spBtn').onclick=async()=>{const err=$('#serr');err.textContent='';err.className='err full';
+    const cur=$('#sp0').value,u=$('#su').value.trim(),p1=$('#sp1').value,p2=$('#sp2').value;
+    await loadAuth();
+    if(!(await checkLogin(AUTH?AUTH.user:'Atif',cur))){err.textContent='Current password is wrong.';return}
+    if(u.length<3){err.textContent='Username must be at least 3 characters.';return}
+    if(!pwOk(p1)){err.textContent='New password needs at least 8 characters, with letters and numbers.';return}
+    if(p1!==p2){err.textContent='The two new passwords do not match.';return}
+    const b=$('#spBtn');b.disabled=true;
+    try{await writeAuth(u,p1);$('#sp0').value=$('#sp1').value=$('#sp2').value='';err.className='ok-msg full';err.textContent=`Saved. From now on, sign in as "${u}" with the new password.`;toast('Password changed.')}
+    catch(x){err.textContent='Could not save: '+x.message}finally{b.disabled=false}};
+  $('#forgetBtn').onclick=()=>{if(!confirm('Forget the GitHub key on this device? You will need to paste it again next time.'))return;store.del('kccs_gh');sessionStorage.removeItem('kccs_in');location.reload()};
 }
 
 /* ── SAVE ── */
@@ -415,14 +682,14 @@ $('#saveBtn').onclick=async()=>{const b=$('#saveBtn');b.disabled=true;b.textCont
     const body=b64enc(JSON.stringify(C,null,2)+'\n');
     try{const r=await putFile('content.json',body,'Update website content (admin)',contentSha);contentSha=r.content.sha}
     catch(err){if(err.status===409||err.status===422){const f=await getFile('content.json');const r=await putFile('content.json',body,'Update website content (admin)',f&&f.sha);contentSha=r.content.sha}else throw err}
-    setDirty(false);toast('Published. The live site updates in about 1 minute.');
+    savedJSON=JSON.stringify(C);updateStatus();toast('Published. The live site updates within 1 to 10 minutes. Press Ctrl + F5 on the site to see it.');
   }catch(err){toast('Save failed: '+err.message,1)}
   finally{b.disabled=false;b.textContent='Save & publish'}};
-addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='s'&&!$('#vApp').classList.contains('hide')){e.preventDefault();$('#saveBtn').click()}});
+addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'&&!$('#vApp').classList.contains('hide')){e.preventDefault();$('#saveBtn').click()}});
 
 /* start */
 if(location.protocol==='file:')$('#fileWarn').classList.remove('hide');
-if(sessionStorage.getItem('kccs_in')==='1')afterLogin();else show('vLogin');
+if(sessionStorage.getItem('kccs_in')==='1'){touch();loadAuth();afterLogin()}else show('vLogin');
 })();
 </script>
 </body>
