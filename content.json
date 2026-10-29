@@ -244,8 +244,8 @@
   "settings": {
     "accent": "#0891b2",
     "logoHeight": 30,
-    "showNameWithLogo": true,
-    "logoAsFavicon": true,
+    "showNameWithLogo": false,
+    "logoAsFavicon": false,
     "sections": {
       "heroPhotos": true,
       "stats": true,
