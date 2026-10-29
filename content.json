@@ -243,7 +243,7 @@
   },
   "settings": {
     "accent": "#0a6cff",
-    "logoHeight": 36,
+    "logoHeight": 30,
     "showNameWithLogo": true,
     "logoAsFavicon": true,
     "sections": {
