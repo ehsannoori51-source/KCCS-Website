@@ -1,0 +1,234 @@
+{
+  "site": {
+    "name": "KCCS",
+    "fullName": "Kabul Central Cold Storage",
+    "logo": "kccs-logo.png",
+    "heroTitle": "Precision cold for",
+    "heroHighlight": "Afghanistan's",
+    "heroTitleEnd": "future.",
+    "heroText": "From farm-fresh produce to life-saving vaccines, KCCS keeps every pallet at the right temperature, from intake to delivery across Kabul.",
+    "trust": [
+      "ISO-aligned",
+      "WHO-compliant pharma",
+      "24/7 monitoring",
+      "Generator & solar power",
+      "Since 2015"
+    ],
+    "aboutTitle": "Kabul's cold chain partner since 2015.",
+    "aboutText": "We keep produce, food and medicine safe from intake to delivery. Exporters, hospitals, NGOs and food businesses rely on us for storage plans built for the Afghan market.",
+    "aboutPoints": [
+      "IoT monitoring & alerts",
+      "Vaccine-grade cold chain",
+      "Trained handling staff",
+      "Short & long-term plans",
+      "Backup power & 24/7 security",
+      "ISO-aligned standards"
+    ]
+  },
+  "stats": {
+    "capacity": 10000,
+    "satisfaction": 99,
+    "deliveries": 500,
+    "years": "10+"
+  },
+  "contact": {
+    "phone1": "+93 771 895 602",
+    "phone2": "+93 785 347 477",
+    "emergency": "+93 799 654 321",
+    "whatsapp": "+93 771 895 602",
+    "formEmail": "ehsan.noori51@gmail.com",
+    "facebook": "kccs.af",
+    "address": "Industrial Park, Phase 2, Kabul, Afghanistan",
+    "mapsLink": "https://maps.app.goo.gl/dVsqz25pHV6XEc9S7",
+    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5321.116363013774!2d69.19702861163025!3d34.53763066259262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d16f9761763b83%3A0xdbc44b66e2d48993!2sKabul%20Central%20Cold%20Storage!5e0!3m2!1sen!2saf!4v1721643600000"
+  },
+  "hours": {
+    "open": "07:00",
+    "close": "18:00",
+    "fridayText": "Emergency line only",
+    "fridayClosed": true
+  },
+  "chambers": [
+    {
+      "name": "Fruit & Veg",
+      "range": "0°C → +8°C",
+      "temp": "+4",
+      "used": 68
+    },
+    {
+      "name": "Pharmaceutical",
+      "range": "−20°C → +8°C",
+      "temp": "−18",
+      "used": 42
+    },
+    {
+      "name": "Deep Freeze",
+      "range": "Down to −25°C",
+      "temp": "−25",
+      "used": 87
+    },
+    {
+      "name": "Ambient Cool",
+      "range": "+8°C → +15°C",
+      "temp": "+12",
+      "used": 31
+    }
+  ],
+  "services": [
+    {
+      "icon": "snow",
+      "title": "Temperature-controlled storage",
+      "text": "Rooms from −25°C to +15°C for produce, dairy and frozen goods."
+    },
+    {
+      "icon": "box",
+      "title": "Cross-docking & inventory",
+      "text": "Handling, palletising, labelling and stock tracking."
+    },
+    {
+      "icon": "truck",
+      "title": "Distribution & last-mile",
+      "text": "Refrigerated delivery across Kabul and nearby provinces."
+    },
+    {
+      "icon": "pill",
+      "title": "Pharmaceutical cold chain",
+      "text": "Vaccine and medicine storage for hospitals and NGOs."
+    },
+    {
+      "icon": "leaf",
+      "title": "Produce & export handling",
+      "text": "Pre-cooling, grading and packing for exporters."
+    },
+    {
+      "icon": "shield",
+      "title": "24/7 secure operations",
+      "text": "Monitoring, generator backup, CCTV and guards."
+    }
+  ],
+  "pricing": [
+    {
+      "name": "Fruit & Veg storage",
+      "short": "Fruit & Veg",
+      "price": 1200,
+      "unit": "pallet",
+      "monthly": true,
+      "popular": true
+    },
+    {
+      "name": "Pharma storage",
+      "short": "Pharma",
+      "price": 1800,
+      "unit": "m³",
+      "monthly": true,
+      "popular": false
+    },
+    {
+      "name": "Deep freeze storage",
+      "short": "Deep Freeze",
+      "price": 2400,
+      "unit": "pallet",
+      "monthly": true,
+      "popular": false
+    },
+    {
+      "name": "Cross-docking & handling",
+      "short": "Cross-docking",
+      "price": 500,
+      "unit": "shipment",
+      "monthly": false,
+      "popular": false
+    },
+    {
+      "name": "Delivery in Kabul",
+      "short": "Delivery · Kabul",
+      "price": 2000,
+      "unit": "trip",
+      "monthly": false,
+      "popular": false
+    }
+  ],
+  "heroPhotos": [
+    "photos/kccs-courtyard.jpg",
+    "photos/kccs-control-panels.jpg",
+    "photos/kccs-solar-parking.jpg"
+  ],
+  "aboutPhoto": "photos/kccs-cold-rooms.jpg",
+  "gallery": [
+    {
+      "file": "photos/kccs-courtyard.jpg",
+      "caption": "Facility"
+    },
+    {
+      "file": "photos/kccs-control-panels.jpg",
+      "caption": "Controls"
+    },
+    {
+      "file": "photos/kccs-generator.jpg",
+      "caption": "Generator"
+    },
+    {
+      "file": "photos/kccs-solar-parking.jpg",
+      "caption": "Solar yard"
+    },
+    {
+      "file": "photos/kccs-power-room.jpg",
+      "caption": "Power room"
+    },
+    {
+      "file": "photos/kccs-cold-rooms.jpg",
+      "caption": "Cold rooms"
+    },
+    {
+      "file": "photos/kccs-office.jpg",
+      "caption": "Office"
+    },
+    {
+      "file": "photos/kccs-facility.jpg",
+      "caption": "Exterior"
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "KCCS helped us ship fresh produce to India with zero spoilage loss. Excellent temperature control and a very professional team.",
+      "name": "Ahmad Exports",
+      "role": "Produce exporter, Kabul"
+    },
+    {
+      "quote": "Exactly what our NGO needed. Vaccines reached remote provinces in perfect condition every time.",
+      "name": "Health Organisation",
+      "role": "Vaccine logistics partner"
+    },
+    {
+      "quote": "Reliable, affordable and always available. The only cold storage I trust for our restaurant supply chain.",
+      "name": "Kabul Foods",
+      "role": "F&B supply chain"
+    }
+  ],
+  "faq": [
+    {
+      "q": "What is the minimum storage period?",
+      "a": "One month as standard. Weekly rates are available for caterers, exporters waiting for a shipment window, or urgent pharmaceutical storage."
+    },
+    {
+      "q": "Do you deliver?",
+      "a": "Yes. Refrigerated delivery within Kabul, inter-provincial logistics through partners, and same-day delivery for urgent shipments with prior arrangement."
+    },
+    {
+      "q": "Is it safe for pharmaceuticals?",
+      "a": "Our pharma chambers follow WHO and international cold chain standards, with continuous temperature logs, backup power and compliance documents."
+    },
+    {
+      "q": "What happens in a power outage?",
+      "a": "Dual backup generators start automatically within seconds of a grid failure. Every event is logged with a timestamp."
+    },
+    {
+      "q": "Do you serve clients outside Kabul?",
+      "a": "Yes. We work with clients across Afghanistan, including NGOs in remote provinces."
+    },
+    {
+      "q": "Can I visit before signing?",
+      "a": "Yes. Book a tour and our operations team will walk you through the chambers and monitoring systems."
+    }
+  ]
+}
