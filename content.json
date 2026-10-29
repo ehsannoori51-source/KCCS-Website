@@ -2,7 +2,7 @@
   "site": {
     "name": "KCCS",
     "fullName": "Kabul Central Cold Storage",
-    "logo": "photos/cold-logo-mvt8md6t.png",
+    "logo": "",
     "heroTitle": "Precision cold for",
     "heroHighlight": "Afghanistan's",
     "heroTitleEnd": "future.",
@@ -153,7 +153,7 @@
     "photos/kccs-control-panels.jpg",
     "photos/kccs-solar-parking.jpg"
   ],
-  "aboutPhoto": "photos/kccs-cold-rooms.jpg",
+  "aboutPhoto": "gallery3.jpg",
   "gallery": [
     {
       "file": "photos/kccs-courtyard.jpg",
@@ -182,10 +182,6 @@
     {
       "file": "photos/kccs-facility.jpg",
       "caption": "Exterior"
-    },
-    {
-      "file": "photos/cold-logo-mvt8md6t.png",
-      "caption": ""
     }
   ],
   "testimonials": [
