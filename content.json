@@ -41,7 +41,7 @@
     "address": "Industrial Park, Phase 2, Kabul, Afghanistan",
     "mapsLink": "https://maps.app.goo.gl/dVsqz25pHV6XEc9S7",
     "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5321.116363013774!2d69.19702861163025!3d34.53763066259262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d16f9761763b83%3A0xdbc44b66e2d48993!2sKabul%20Central%20Cold%20Storage!5e0!3m2!1sen!2saf!4v1721643600000",
-    "email": "",
+    "email": "kccs.afg@gmail.com",
     "instagram": "",
     "linkedin": ""
   },
@@ -268,7 +268,7 @@
       "whatsappButton": true
     },
     "announcement": {
-      "on": false,
+      "on": true,
       "text": "Special Eid Offer",
       "link": ""
     },
