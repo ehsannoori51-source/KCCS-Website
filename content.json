@@ -153,7 +153,7 @@
   ],
   "heroPhotos": [
     "photos/kccs-courtyard.jpg",
-    "photos/kccs-control-panels.jpg",
+    "",
     "photos/kccs-solar-parking.jpg"
   ],
   "aboutPhoto": "gallery3.jpg",
@@ -161,14 +161,6 @@
     {
       "file": "photos/kccs-courtyard.jpg",
       "caption": "Facility"
-    },
-    {
-      "file": "photos/kccs-control-panels.jpg",
-      "caption": "Controls"
-    },
-    {
-      "file": "photos/kccs-generator.jpg",
-      "caption": "Generator"
     },
     {
       "file": "photos/kccs-solar-parking.jpg",
