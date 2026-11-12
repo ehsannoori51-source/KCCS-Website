@@ -152,27 +152,15 @@
     }
   ],
   "heroPhotos": [
-    "photos/kccs-courtyard.jpg",
+    "",
     "",
     "photos/kccs-solar-parking.jpg"
   ],
   "aboutPhoto": "gallery3.jpg",
   "gallery": [
     {
-      "file": "photos/kccs-courtyard.jpg",
-      "caption": "Facility"
-    },
-    {
       "file": "photos/kccs-solar-parking.jpg",
       "caption": "Solar yard"
-    },
-    {
-      "file": "photos/kccs-power-room.jpg",
-      "caption": "Power room"
-    },
-    {
-      "file": "photos/kccs-office.jpg",
-      "caption": "Office"
     },
     {
       "file": "photos/469641852-122125557596516698-84166154315-mvyxe73p.jpg",
@@ -192,6 +180,10 @@
     },
     {
       "file": "photos/vibrant-modern-building-exterior-mwd4ilpz.png",
+      "caption": ""
+    },
+    {
+      "file": "photos/white-fg-wilson-generator-enclosure-mwd4jgsf.png",
       "caption": ""
     }
   ],
@@ -283,7 +275,7 @@
     "seo": {
       "title": "KCCS · Kabul Central Cold Storage",
       "description": "Temperature-controlled storage, pharmaceutical cold chain and refrigerated distribution in Kabul, Afghanistan.",
-      "shareImage": "photos/kccs-courtyard.jpg"
+      "shareImage": ""
     }
   }
 }
